@@ -2,7 +2,7 @@
 {% block title %}Pythonic Shariful — Web Scraping &amp; Automation Expert{% endblock %}
 {% block content %}
 
-{# (1) Hero — centred, text-only, no portrait, no 3D #}
+{# (1) Hero — centred, gradient headline, rating proof, live-terminal visual #}
 <section class="hero">
   <span class="hero-deco hero-deco--diamond hero-deco--d1" aria-hidden="true"></span>
   <span class="hero-deco hero-deco--circle hero-deco--d2" aria-hidden="true"></span>
@@ -10,11 +10,15 @@
   <span class="hero-deco hero-deco--diamond hero-deco--d4" aria-hidden="true"></span>
   <div class="container hero-inner">
     <p class="eyebrow reveal"><span class="status-dot" aria-hidden="true"></span> Python &bull; Web Scraping &bull; Automation Bots</p>
-    <h1 class="reveal">Shariful Islam<br>{{ site.hero_title or 'Web Scraping & Automation Expert' }}</h1>
+    <h1 class="reveal">Shariful Islam<br><span class="grad-text">{{ site.hero_title or 'Web Scraping & Automation Expert' }}</span></h1>
     <p class="hero-sub reveal">{{ site.hero_subtitle or "I'm Shariful, a Python developer from Dhaka. Since January 2024 I've been building scrapers and bots on Fiverr — the kind that have to work on the real site, with real anti-bot checks, not just in a test folder." }}</p>
     <div class="hero-ctas reveal">
       <a class="btn btn-primary" href="{{ url_for('projects') }}">View Projects</a>
       <a class="btn btn-outline" href="{{ site.fiverr_url or 'https://www.fiverr.com/python_shariful' }}" target="_blank" rel="noopener">Hire Me on Fiverr</a>
+    </div>
+    <div class="proof-row reveal" aria-label="Ratings on freelance marketplaces">
+      <a class="proof-badge" href="{{ site.fiverr_url or 'https://www.fiverr.com/python_shariful' }}" target="_blank" rel="noopener"><span class="star"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.6.57-4.98 4.4 1.5 6.46L12 16.9 5.98 19.7l1.5-6.46L2.5 8.83l6.6-.57L12 2z"/></svg></span><strong>4.9</strong><span>&middot; 47 reviews on Fiverr</span></a>
+      <a class="proof-badge" href="{{ site.freelancer_url or 'https://www.freelancer.com/u/pythonicshariful' }}" target="_blank" rel="noopener"><span class="star"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.6.57-4.98 4.4 1.5 6.46L12 16.9 5.98 19.7l1.5-6.46L2.5 8.83l6.6-.57L12 2z"/></svg></span><strong>5.0</strong><span>&middot; 15 reviews on Freelancer</span></a>
     </div>
     <ul class="trust-row reveal" aria-label="Find Shariful Islam on social media">
       <li><a href="{{ site.facebook_url or 'https://www.facebook.com/tanvirmahamud.shariful.3' }}" target="_blank" rel="noopener" aria-label="Shariful Islam on Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21.5v-7.2h2.4l.4-2.9h-2.8V9.5c0-.8.3-1.4 1.5-1.4h1.4V5.5c-.3 0-1.1-.1-2.1-.1-2.1 0-3.5 1.3-3.5 3.6v2.4H8.3v2.9h2.5v7.2h2.7z"/></svg><span>Facebook</span></a></li>
@@ -23,6 +27,20 @@
       <li><a href="{{ site.fiverr_url or 'https://www.fiverr.com/python_shariful' }}" target="_blank" rel="noopener" aria-label="Shariful Islam on Fiverr"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3h11v3H9v3h6v3H9v6H5V3z"/></svg><span>Fiverr</span></a></li>
       <li><a href="{{ site.freelancer_url or 'https://www.freelancer.com/u/pythonicshariful' }}" target="_blank" rel="noopener" aria-label="Shariful Islam on Freelancer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span>Freelancer</span></a></li>
     </ul>
+    <div class="hero-visual reveal">
+      <div class="browser-frame" role="img" aria-label="Illustration of one of Shariful's monitoring bots checking a store and sending a Telegram alert">
+        <div class="browser-bar" aria-hidden="true"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">stock-monitor.py &mdash; python</span></div>
+        <div class="term-body" aria-hidden="true">
+          <p><span class="term-cmd">$ python stock-monitor.py</span></p>
+          <p><span class="term-ok">&check;</span> Session ready &mdash; fresh sticky proxy</p>
+          <p><span class="term-ok">&check;</span> Microsoft Store &mdash; 200 OK &middot; checking&hellip;</p>
+          <p><span class="term-ok">&check;</span> Price changed &mdash; alert sent to Telegram</p>
+          <p><span class="term-cmd">$</span> <span class="term-cursor"></span></p>
+        </div>
+      </div>
+      <div class="float-card float-card--left" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><div><strong>Restock found</strong><span>Telegram alert sent</span></div></div>
+      <div class="float-card float-card--right" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><div><strong>Checkout guarded</strong><span>No accidental orders</span></div></div>
+    </div>
   </div>
 </section>
 
