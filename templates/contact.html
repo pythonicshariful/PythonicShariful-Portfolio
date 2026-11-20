@@ -2,7 +2,7 @@
 {% block title %}Contact — Pythonic Shariful{% endblock %}
 {% block content %}
 <section class="section page-head">
-  <div class="container narrow">
+  <div class="container narrow section-head section-head--center">
     <p class="eyebrow reveal">Contact</p>
     <h1 class="reveal">Start a project</h1>
     <p class="lead reveal">Tell me what you need. I reply personally — usually within 24 hours — and I will tell you honestly whether it is possible.</p>
@@ -66,7 +66,7 @@
         {% if errors and errors.message %}<p class="field-error">{{ errors.message }}</p>{% endif %}
       </div>
       <button class="btn btn-primary" type="submit">Send Message</button>
-      <p class="muted small">Your message is stored securely and only I can read it. No spam, ever.</p>
+      <p class="muted small">Your message is stored securely and only I can read it.</p>
     </form>
     {% endif %}
     <div class="contact-alt reveal">

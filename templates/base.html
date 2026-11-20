@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +8,17 @@
 <meta property="og:title" content="Pythonic Shariful — Web Scraping &amp; Automation Expert">
 <meta property="og:type" content="website">
 <meta property="og:image" content="{{ url_for('static', filename='images/shariful.jpg', _external=True) }}">
+<script>document.documentElement.classList.replace('no-js', 'js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 {% block head %}{% endblock %}
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-  <div class="container header-inner">
+  <div class="header-pill">
     <a class="brand" href="{{ url_for('about') }}" aria-label="Pythonic Shariful — about Shariful">
       <span class="brand-avatar"><img src="{{ url_for('static', filename='images/shariful.jpg') }}" alt="Shariful Islam, Python developer from Dhaka" width="40" height="40"></span>
       <span class="brand-text">Pythonic <span class="brand-accent">Shariful</span></span>
@@ -30,7 +31,7 @@
       <a href="{{ url_for('about') }}" class="{% if request.endpoint == 'about' %}active{% endif %}">About</a>
       <a href="{{ url_for('services') }}" class="{% if request.endpoint == 'services' %}active{% endif %}">Services</a>
       <a href="{{ url_for('projects') }}" class="{% if request.endpoint == 'projects' %}active{% endif %}">Projects</a>
-      <a href="{{ url_for('contact') }}" class="btn btn-primary nav-cta">Hire Me</a>
+      <a href="{{ url_for('contact') }}" class="btn btn-gradient nav-cta">Hire Me</a>
     </nav>
   </div>
 </header>
@@ -49,36 +50,40 @@
 </main>
 
 <footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <p class="footer-brand">Pythonic Shariful</p>
-      <p class="muted">Shariful Islam — Python developer from Dhaka, Bangladesh. Web scraping, automation bots and Flask web apps, verified live before delivery.</p>
+  <div class="container">
+    <p class="footer-tagline">Pythonic Shariful — Web Scraping &amp; Automation</p>
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">Pythonic Shariful</p>
+        <p>Shariful Islam — Python developer from Dhaka, Bangladesh. Web scraping, automation bots and Flask web apps, verified live before delivery.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Explore</p>
+        <ul class="footer-links">
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('services') }}">Services</a></li>
+          <li><a href="{{ url_for('projects') }}">Projects</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Find me</p>
+        <ul class="footer-links">
+          <li><a href="{{ site.facebook_url or 'https://www.facebook.com/tanvirmahamud.shariful.3' }}" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="{{ site.github_url or 'https://github.com/pythonicshariful' }}" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="{{ site.linkedin_url or 'https://www.linkedin.com/in/pythonicshariful141/' }}" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="{{ site.fiverr_url or 'https://www.fiverr.com/pythonicshariful' }}" target="_blank" rel="noopener">Fiverr</a></li>
+          <li><a href="mailto:{{ site.email or 'pythonicshariful@gmail.com' }}">{{ site.email or 'pythonicshariful@gmail.com' }}</a></li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <p class="footer-heading">Explore</p>
-      <ul class="footer-links">
-        <li><a href="{{ url_for('about') }}">About</a></li>
-        <li><a href="{{ url_for('services') }}">Services</a></li>
-        <li><a href="{{ url_for('projects') }}">Projects</a></li>
-        <li><a href="{{ url_for('contact') }}">Contact</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <p>&copy; {{ now_year }} Shariful Islam (Pythonic Shariful). All rights reserved.</p>
+      <p>Site code: <a href="https://github.com/pythonicshariful/PythonicShariful-Portfolio" target="_blank" rel="noopener">PythonicShariful-Portfolio</a> &middot; <a href="{{ url_for('admin_login') }}">Admin</a></p>
     </div>
-    <div>
-      <p class="footer-heading">Find me</p>
-      <ul class="footer-links">
-        <li><a href="{{ site.facebook_url or 'https://www.facebook.com/tanvirmahamud.shariful.3' }}" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="{{ site.github_url or 'https://github.com/pythonicshariful' }}" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="{{ site.linkedin_url or 'https://www.linkedin.com/in/pythonicshariful141/' }}" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="{{ site.fiverr_url or 'https://www.fiverr.com/pythonicshariful' }}" target="_blank" rel="noopener">Fiverr</a></li>
-        <li><a href="mailto:{{ site.email or 'pythonicshariful@gmail.com' }}">{{ site.email or 'pythonicshariful@gmail.com' }}</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <p>&copy; {{ now_year }} Shariful Islam (Pythonic Shariful). All rights reserved.</p>
-    <p>Site code: <a href="https://github.com/pythonicshariful/PythonicShariful-Portfolio" target="_blank" rel="noopener">PythonicShariful-Portfolio</a> &middot; <a href="{{ url_for('admin_login') }}">Admin</a></p>
   </div>
 </footer>
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
 {% block scripts %}{% endblock %}
 </body>

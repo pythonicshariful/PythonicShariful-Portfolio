@@ -6,18 +6,20 @@ Main portfolio website for **Shariful Islam (Pythonic Shariful)** — Web Scrapi
 GitHub repo: **https://github.com/pythonicshariful/PythonicShariful-Portfolio**
 
 Stack: **Python Flask only** (Flask + Werkzeug, stdlib `sqlite3` — no SQLAlchemy,
-no Node build step). Custom CSS in `static/css/`, vanilla JS in `static/js/`.
-Three.js via CDN for the hero 3D scene, with a graceful fallback if the CDN
-is offline.
+no Node build step). Custom CSS in `static/css/`, vanilla JS in `static/js/`
+(nav, scroll reveal, stats count-up, tools marquee — no build step, no 3D).
 
-Design: Dark OLED theme (`#0F172A` background, `#22C55E` accent), IBM Plex Sans
-+ JetBrains Mono, responsive mobile-first (375 / 768 / 1024 / 1440px), from the
-ui-ux-pro-max design skill.
+Design: light premium agency theme (pale mint `#EEFDF9` background, deep navy
+`#213D63` headings, violet `#5B3FF8` + teal `#0AA692` accents), Plus Jakarta
+Sans + JetBrains Mono, responsive mobile-first (375 / 768 / 1024 / 1440px),
+from the ui-ux-pro-max design skill. No photo on the homepage by design —
+the portrait lives on the About page.
 
 ## Features
 
-- Public site: Home (3D hero, stats, featured projects, services, process,
-  project outcomes), About (timeline + skill bars), Services, filterable
+- Public site: Home (centred hero, count-up stats, story, services, tools
+  marquee, dark How-I-Work section, featured work, FAQ, contact CTA card),
+  About (photo + timeline + skill bars), Services, filterable
   Projects + project detail pages, Contact form (saved to SQLite, honeypot
   anti-spam), `/health` / `/api/health` JSON endpoint.
 - Admin dashboard (`/admin`): session auth, stats, full CRUD for projects,
@@ -142,6 +144,6 @@ templates/              base, index, about, services, projects,
 templates/admin/        base, login, dashboard, projects, project_form,
                         services, service_form, skills, messages, settings
 static/css/             main.css, admin.css
-static/js/              main.js (nav, reveal, 3D hero), admin.js
+static/js/              main.js (nav, reveal, stats count-up), admin.js
 instance/site.db        SQLite DB (created on first run, gitignored)
 ```

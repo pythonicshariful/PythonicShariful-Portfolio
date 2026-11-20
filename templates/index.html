@@ -2,131 +2,244 @@
 {% block title %}Pythonic Shariful — Web Scraping &amp; Automation Expert{% endblock %}
 {% block content %}
 
+{# (1) Hero — centred, text-only, no portrait, no 3D #}
 <section class="hero">
-  <div class="hero-canvas-wrap" aria-hidden="true"><canvas id="hero3d"></canvas></div>
-  <div class="container hero-inner hero-grid">
-    <div class="hero-text">
-      <p class="eyebrow reveal"><span class="status-dot" aria-hidden="true"></span> Available for freelance work</p>
-      <h1 class="reveal">Shariful Islam<br><span class="accent-text">{{ site.hero_title or 'Web Scraping & Automation Expert' }}</span></h1>
-      <p class="hero-sub reveal">{{ site.hero_subtitle or "I'm Shariful, a Python developer from Dhaka. Since January 2024 I've been building scrapers and bots on Fiverr — the kind that have to work on the real site, with real anti-bot checks, not just in a test folder." }}</p>
-      <div class="hero-ctas reveal">
-        <a class="btn btn-primary" href="{{ url_for('projects') }}">View Projects</a>
-        <a class="btn btn-outline" href="{{ site.fiverr_url or 'https://www.fiverr.com/pythonicshariful' }}" target="_blank" rel="noopener">Hire Me on Fiverr</a>
-      </div>
-      <ul class="social-row reveal" aria-label="Find Shariful Islam on social media">
-        <li><a href="{{ site.facebook_url or 'https://www.facebook.com/tanvirmahamud.shariful.3' }}" target="_blank" rel="noopener" aria-label="Shariful Islam on Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21.5v-7.2h2.4l.4-2.9h-2.8V9.5c0-.8.3-1.4 1.5-1.4h1.4V5.5c-.3 0-1.1-.1-2.1-.1-2.1 0-3.5 1.3-3.5 3.6v2.4H8.3v2.9h2.5v7.2h2.7z"/></svg><span>Facebook</span></a></li>
-        <li><a href="{{ site.github_url or 'https://github.com/pythonicshariful' }}" target="_blank" rel="noopener" aria-label="Shariful Islam on GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg><span>GitHub</span></a></li>
-        <li><a href="{{ site.linkedin_url or 'https://www.linkedin.com/in/pythonicshariful141/' }}" target="_blank" rel="noopener" aria-label="Shariful Islam on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.09h4.56V23H.22V8.09zM8.34 8.09h4.37v2.04h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 7v8.24h-4.55v-7.3c0-1.74-.03-3.98-2.43-3.98-2.43 0-2.8 1.9-2.8 3.86V23H8.34V8.09z"/></svg><span>LinkedIn</span></a></li>
-        <li><a href="{{ site.fiverr_url or 'https://www.fiverr.com/pythonicshariful' }}" target="_blank" rel="noopener" aria-label="Shariful Islam on Fiverr"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3h11v3H9v3h6v3H9v6H5V3z"/></svg><span>Fiverr</span></a></li>
-      </ul>
+  <span class="hero-deco hero-deco--diamond hero-deco--d1" aria-hidden="true"></span>
+  <span class="hero-deco hero-deco--circle hero-deco--d2" aria-hidden="true"></span>
+  <span class="hero-deco hero-deco--circle hero-deco--d3" aria-hidden="true"></span>
+  <span class="hero-deco hero-deco--diamond hero-deco--d4" aria-hidden="true"></span>
+  <div class="container hero-inner">
+    <p class="eyebrow reveal"><span class="status-dot" aria-hidden="true"></span> Python &bull; Web Scraping &bull; Automation Bots</p>
+    <h1 class="reveal">Shariful Islam<br>{{ site.hero_title or 'Web Scraping & Automation Expert' }}</h1>
+    <p class="hero-sub reveal">{{ site.hero_subtitle or "I'm Shariful, a Python developer from Dhaka. Since January 2024 I've been building scrapers and bots on Fiverr — the kind that have to work on the real site, with real anti-bot checks, not just in a test folder." }}</p>
+    <div class="hero-ctas reveal">
+      <a class="btn btn-primary" href="{{ url_for('projects') }}">View Projects</a>
+      <a class="btn btn-outline" href="{{ site.fiverr_url or 'https://www.fiverr.com/pythonicshariful' }}" target="_blank" rel="noopener">Hire Me on Fiverr</a>
+    </div>
+    <ul class="trust-row reveal" aria-label="Find Shariful Islam on social media">
+      <li><a href="{{ site.facebook_url or 'https://www.facebook.com/tanvirmahamud.shariful.3' }}" target="_blank" rel="noopener" aria-label="Shariful Islam on Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21.5v-7.2h2.4l.4-2.9h-2.8V9.5c0-.8.3-1.4 1.5-1.4h1.4V5.5c-.3 0-1.1-.1-2.1-.1-2.1 0-3.5 1.3-3.5 3.6v2.4H8.3v2.9h2.5v7.2h2.7z"/></svg><span>Facebook</span></a></li>
+      <li><a href="{{ site.github_url or 'https://github.com/pythonicshariful' }}" target="_blank" rel="noopener" aria-label="Shariful Islam on GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg><span>GitHub</span></a></li>
+      <li><a href="{{ site.linkedin_url or 'https://www.linkedin.com/in/pythonicshariful141/' }}" target="_blank" rel="noopener" aria-label="Shariful Islam on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.09h4.56V23H.22V8.09zM8.34 8.09h4.37v2.04h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 7v8.24h-4.55v-7.3c0-1.74-.03-3.98-2.43-3.98-2.43 0-2.8 1.9-2.8 3.86V23H8.34V8.09z"/></svg><span>LinkedIn</span></a></li>
+      <li><a href="{{ site.fiverr_url or 'https://www.fiverr.com/pythonicshariful' }}" target="_blank" rel="noopener" aria-label="Shariful Islam on Fiverr"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3h11v3H9v3h6v3H9v6H5V3z"/></svg><span>Fiverr</span></a></li>
+    </ul>
+  </div>
+</section>
+
+{# (2) Stats band — count-up, verified numbers only #}
+<section class="stats-band" aria-label="Experience at a glance">
+  <div class="container">
+    <div class="stats-grid reveal">
+      <div><span class="stat-num-wrap"><span class="stat-num" data-count="5">5</span><span class="stat-suffix">+</span></span><span class="stat-label">Years experience</span></div>
+      <div><span class="stat-num-wrap"><span class="stat-num" data-count="70">70</span><span class="stat-suffix">+</span></span><span class="stat-label">Public GitHub repos</span></div>
+      <div><span class="stat-num-wrap"><span class="stat-num" data-count="100">100</span><span class="stat-suffix">+</span></span><span class="stat-label">Projects delivered</span></div>
     </div>
   </div>
 </section>
 
-<section class="marquee-section" aria-label="Core skills">
-  <div class="marquee" aria-hidden="true">
-    <span>Python</span><span>Selenium</span><span>Playwright</span><span>Scrapy</span><span>Flask</span><span>Automation Bots</span><span>REST APIs</span><span>Proxy Rotation</span><span>Telegram Alerts</span><span>Data Pipelines</span>
-    <span>Python</span><span>Selenium</span><span>Playwright</span><span>Scrapy</span><span>Flask</span><span>Automation Bots</span><span>REST APIs</span><span>Proxy Rotation</span><span>Telegram Alerts</span><span>Data Pipelines</span>
-  </div>
-</section>
-
-<section class="stats-strip" aria-label="Experience at a glance">
-  <div class="container">
-    <dl class="hero-stats reveal">
-      <div><dt>Years experience</dt><dd>5+</dd></div>
-      <div><dt>Public GitHub repos</dt><dd>70+</dd></div>
-      <div><dt>Projects delivered</dt><dd>100+</dd></div>
-    </dl>
-  </div>
-</section>
-
+{# (3) About / story — text only on the homepage (Shariful's rule: no photo
+   on the home page; his photo shows on About, reached via the brand name) #}
 <section class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">Featured work</p>
-      <h2>Projects that shipped — and were verified live</h2>
-      <p class="muted">Every bot below was tested against the real site before it was delivered. A fix is not done until it works live.</p>
+  <div class="container story-single">
+    <div class="reveal">
+      <p class="eyebrow">About Shariful</p>
+      <h2>I build bots that have to work on the real site.</h2>
+      <p class="lead">{{ site.about_text or "I'm Shariful Islam. I graduated in Economics (BA, Government Tolaram College, Narayanganj) and I work as an accountant by day at Nexus River View in Dhaka. Since January 2024 I've also been working freelance on Fiverr as a Python developer. Most of my work is web scraping, checkout and monitoring bots, and Flask web apps. I test everything against the live site before I hand it over, and if something can't be done reliably, I say so upfront." }}</p>
+      <div class="mini-stats">
+        <div><span class="mini-stat-num">5+</span><span class="mini-stat-label">Years Experience</span></div>
+        <div><span class="mini-stat-num">Live-verified</span><span class="mini-stat-label">Always, before delivery</span></div>
+      </div>
+      <a class="btn btn-primary" href="{{ site.fiverr_url or 'https://www.fiverr.com/pythonicshariful' }}" target="_blank" rel="noopener">View Fiverr Profile</a>
     </div>
-    <div class="bento-grid">
-      {% for p in featured %}
-      <article class="card reveal {% if loop.first %}card--wide{% endif %}">
-        {% set pv = p %}{% include "_project_visual.html" %}
-        <p class="card-tag mono">{{ categories.get(p.category, p.category) }}</p>
-        <h3><a href="{{ url_for('project_detail', slug=p.slug) }}">{{ p.title }}</a></h3>
-        <p class="muted">{{ p.summary }}</p>
-        <div class="tags">{% for t in p.tech.split(',') %}<span class="tag">{{ t.strip() }}</span>{% endfor %}</div>
-        <a class="card-link" href="{{ url_for('project_detail', slug=p.slug) }}">Read case study <span aria-hidden="true">&rarr;</span></a>
+  </div>
+</section>
+
+{# (4) Services #}
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow">What I Do</p>
+      <h2>Six services. One developer. Your whole automation.</h2>
+      <p class="lead">Each service has a clear deliverable. If your job does not fit one of these, message me — I will tell you honestly if I can do it.</p>
+    </div>
+    <div class="card-grid">
+      {% for s in services %}
+      <article class="card reveal">
+        <span class="svc-icon-box">{% set icon = s.icon %}{% include "_service_icon.html" %}</span>
+        <h3>{{ s.title }}</h3>
+        <p class="muted">{{ s.summary }}</p>
+        <a class="card-link" href="{{ url_for('contact') }}">Discuss this service <span aria-hidden="true">&rarr;</span></a>
       </article>
       {% endfor %}
-      <a class="bento-more reveal" href="{{ url_for('projects') }}">
-        <span class="bento-more-num mono">8</span>
-        <span class="bento-more-text">projects in total — bots, monitors &amp; web apps</span>
-        <span class="bento-more-link">See all projects <span aria-hidden="true">&rarr;</span></span>
+    </div>
+  </div>
+</section>
+
+{# (5) Tools marquee #}
+<section class="tools-section" aria-label="Tools and technologies I work with">
+  <p class="tools-label reveal">Tools &amp; Technologies I Work With</p>
+  <div class="tools-marquee" aria-hidden="true">
+    <div class="tools-track">
+      <span class="tool-chip">Python</span><span class="tool-chip">Selenium</span><span class="tool-chip">Playwright</span><span class="tool-chip">Scrapy</span><span class="tool-chip">Flask</span><span class="tool-chip">REST APIs</span><span class="tool-chip">PostgreSQL</span><span class="tool-chip">SQLite</span><span class="tool-chip">Proxy Rotation</span><span class="tool-chip">Telegram</span><span class="tool-chip">JavaScript</span><span class="tool-chip">Tampermonkey</span><span class="tool-chip">Data Pipelines</span><span class="tool-chip">Machine Learning</span>
+      <span class="tool-chip">Python</span><span class="tool-chip">Selenium</span><span class="tool-chip">Playwright</span><span class="tool-chip">Scrapy</span><span class="tool-chip">Flask</span><span class="tool-chip">REST APIs</span><span class="tool-chip">PostgreSQL</span><span class="tool-chip">SQLite</span><span class="tool-chip">Proxy Rotation</span><span class="tool-chip">Telegram</span><span class="tool-chip">JavaScript</span><span class="tool-chip">Tampermonkey</span><span class="tool-chip">Data Pipelines</span><span class="tool-chip">Machine Learning</span>
+    </div>
+  </div>
+</section>
+
+{# (6) How I Work — the ONE dark section #}
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow eyebrow--dark">How I Work</p>
+      <h2>From a link to a working bot.</h2>
+      <p class="lead">You send me the link. I check the site first — and tell you honestly if it can be done.</p>
+    </div>
+    <ol class="process">
+      <li class="reveal"><span class="process-num">01</span><h3>Discover</h3><p class="muted">You send me the link. I check the site first — what it allows, what blocks bots — and tell you honestly if it can be done.</p><p class="process-get"><strong>You get:</strong> an honest yes or no before you spend anything.</p></li>
+      <li class="reveal"><span class="process-num">02</span><h3>Build</h3><p class="muted">I build it with retries, logging and human-like behaviour, so it doesn't break the first time the site changes a little.</p><p class="process-get"><strong>You get:</strong> retries, logging and human-like behaviour built in.</p></li>
+      <li class="reveal"><span class="process-num">03</span><h3>Test Live</h3><p class="muted">I run it against the real site, not a mock. If it fails live, it's not finished.</p><p class="process-get"><strong>You get:</strong> proof it works on the real site, not a mock.</p></li>
+      <li class="reveal"><span class="process-num">04</span><h3>Deliver</h3><p class="muted">You get the code, a setup guide and a walkthrough, plus honest notes on what to watch after delivery.</p><p class="process-get"><strong>You get:</strong> the code, a setup guide and a walkthrough.</p></li>
+    </ol>
+  </div>
+</section>
+
+{# (7) Featured Work — 3 featured projects + link to all 8.
+   NOTE: the index route passes only 3 featured projects (LIMIT 3 in app.py);
+   showing 6 here would need an app.py change, which is out of scope. #}
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow">Featured Work</p>
+      <h2>Projects that shipped — and were verified live</h2>
+      <p class="lead">Every bot below was tested against the real site before it was delivered. A fix is not done until it works live.</p>
+    </div>
+    <div class="work-grid">
+      {% for p in featured %}
+      <article class="card reveal">
+        {% set pv = p %}{% include "_project_visual.html" %}
+        <div class="card-body">
+          <p class="card-tag">{{ categories.get(p.category, p.category) }}</p>
+          <h3><a href="{{ url_for('project_detail', slug=p.slug) }}">{{ p.title }}</a></h3>
+          <p class="muted">{{ p.summary }}</p>
+          <div class="tags">{% for t in p.tech.split(',') %}<span class="tag">{{ t.strip() }}</span>{% endfor %}</div>
+          <a class="card-link" href="{{ url_for('project_detail', slug=p.slug) }}">Read case study <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      {% endfor %}
+      <a class="work-more reveal" href="{{ url_for('projects') }}">
+        <span class="work-more-num">8</span>
+        <span class="work-more-text">projects in total — bots, monitors &amp; web apps</span>
+        <span class="work-more-link">See all projects <span aria-hidden="true">&rarr;</span></span>
       </a>
     </div>
   </div>
 </section>
 
+{# (8) FAQ — answers only from Shariful's own stated rules #}
 <section class="section section-alt">
   <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">What I do</p>
-      <h2>Services</h2>
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2>Frequently asked questions</h2>
+      <p class="lead">Straight answers, the same ones I give every client before we start.</p>
     </div>
-    <div class="card-grid">
-      {% for s in services %}
-      <article class="card reveal">
-        {% set icon = s.icon %}{% include "_service_icon.html" %}
-        <h3>{{ s.title }}</h3>
-        <p class="muted">{{ s.summary }}</p>
-      </article>
-      {% endfor %}
+    <div class="faq reveal">
+      <details class="faq-item" open>
+        <summary>Will the bot work on the real site — or just in a demo?<svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="faq-answer"><p>I test everything against the live site before I hand it over. If it fails live, it's not finished — a bot is only done when it is verified working live.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Will the bot place orders or spend my money by itself?<svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="faq-answer"><p>No. The final step — actually placing an order — is always guarded, so the bot never spends your money by accident.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What if my idea can't be done?<svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="faq-answer"><p>I check the site first — what it allows, what blocks bots — and tell you honestly if it can be done. If something can't be done reliably, I say so upfront.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What do you need from me to start?<svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="faq-answer"><p>Send me the link and tell me what you need: the site and the fields you want, or the flow the bot should do. I'll tell you honestly what it will take.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What do I get when you deliver?<svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="faq-answer"><p>You get the code, a setup guide and a walkthrough, plus honest notes on what to watch after delivery.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>How fast will you reply?<svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="faq-answer"><p>I reply personally — usually within 24 hours — and I will tell you honestly whether your idea is possible.</p></div>
+      </details>
     </div>
-    <p class="center reveal"><a class="btn btn-outline" href="{{ url_for('services') }}">All services &amp; deliverables</a></p>
   </div>
 </section>
 
+{# (9) Final CTA — two columns, working contact form on the right #}
 <section class="section">
   <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">How I work</p>
-      <h2>Discover &rarr; Build &rarr; Test Live &rarr; Deliver</h2>
+    <div class="cta-card reveal">
+      <div>
+        <p class="eyebrow">Start a Project</p>
+        <h2>Not sure if your idea will work?</h2>
+        <div class="cta-identity">
+          <div>
+            <div class="cta-identity-name">Shariful Islam</div>
+            <div class="cta-identity-role">Python Developer</div>
+          </div>
+        </div>
+        <ul class="check-list">
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" stroke="none" opacity=".15"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Tested live before delivery</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" stroke="none" opacity=".15"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Guarded final checkout step</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" stroke="none" opacity=".15"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Honest scoping upfront</li>
+        </ul>
+        <p class="muted">Send me the link and I'll tell you honestly what it will take.</p>
+      </div>
+      <form class="form" method="post" action="{{ url_for('contact') }}" novalidate>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <div class="hp-field" aria-hidden="true">
+          <label for="website-home">Leave this field empty</label>
+          <input type="text" name="website" id="website-home" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="name-home">Your name</label>
+            <input type="text" id="name-home" name="name" required minlength="2" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="email-home">Email</label>
+            <input type="email" id="email-home" name="email" required autocomplete="email">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="project_type-home">Project type</label>
+            <select id="project_type-home" name="project_type">
+              <option value="">Select a type</option>
+              <option>Web Scraping</option>
+              <option>Automation Bot</option>
+              <option>Monitoring Bot</option>
+              <option>Web App / CRM</option>
+              <option>AI Prototype</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="budget-home">Budget range</label>
+            <select id="budget-home" name="budget">
+              <option value="">Select a range</option>
+              <option>Under $100</option>
+              <option>$100 – $500</option>
+              <option>$500 – $1,000</option>
+              <option>$1,000+</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="message-home">Project details</label>
+          <textarea id="message-home" name="message" rows="5" required minlength="10" placeholder="What site, what data or flow, and what does success look like?"></textarea>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Send Message</button>
+        <p class="muted small">Your message is stored securely and only I can read it.</p>
+      </form>
     </div>
-    <ol class="process">
-      <li class="reveal"><span class="process-num mono">01</span><h3>Discover</h3><p class="muted">You send me the link. I check the site first — what it allows, what blocks bots — and tell you honestly if it can be done.</p></li>
-      <li class="reveal"><span class="process-num mono">02</span><h3>Build</h3><p class="muted">I build it with retries, logging and human-like behaviour, so it doesn't break the first time the site changes a little.</p></li>
-      <li class="reveal"><span class="process-num mono">03</span><h3>Test Live</h3><p class="muted">I run it against the real site, not a mock. If it fails live, it's not finished.</p></li>
-      <li class="reveal"><span class="process-num mono">04</span><h3>Deliver</h3><p class="muted">You get the code, a setup guide and a walkthrough, plus honest notes on what to watch after delivery.</p></li>
-    </ol>
   </div>
 </section>
-
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">Outcomes from recent work</p>
-      <h2>Results, not promises</h2>
-      <p class="muted">Outcome statements from shipped work. No client names or quoted testimonials are published here.</p>
-    </div>
-    <div class="card-grid">
-      <article class="card reveal"><h3>First live queue pass</h3><p class="muted">A multi-session queue bot passed a real live sale queue, and the two defects found live were fixed the same day.</p></article>
-      <article class="card reveal"><h3>Stock check, live-proven</h3><p class="muted">A Microsoft Store stock check was verified working on a real product page before the bot was handed over.</p></article>
-      <article class="card reveal"><h3>First organic leads delivered</h3><p class="muted">A Flask CRM with Facebook leads polling delivered its first organic leads to production and assigned them automatically.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="section cta-section">
-  <div class="container cta-box reveal">
-    <h2>Not sure if your idea will work?</h2>
-    <p class="muted">Send me the link and I'll tell you honestly what it will take.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-primary" href="{{ url_for('contact') }}">Start a Project</a>
-      <a class="btn btn-outline" href="{{ site.fiverr_url or 'https://www.fiverr.com/pythonicshariful' }}" target="_blank" rel="noopener">Hire Me on Fiverr</a>
-    </div>
-  </div>
-</section>
-{% endblock %}
-{% block scripts %}
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
 {% endblock %}
