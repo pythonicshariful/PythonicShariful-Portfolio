@@ -12,8 +12,8 @@ no Node build step). Custom CSS in `static/css/`, vanilla JS in `static/js/`
 Design: light premium agency theme (pale mint `#EEFDF9` background, deep navy
 `#213D63` headings, violet `#5B3FF8` + teal `#0AA692` accents), Plus Jakarta
 Sans + JetBrains Mono, responsive mobile-first (375 / 768 / 1024 / 1440px),
-from the ui-ux-pro-max design skill. No photo on the homepage by design —
-the portrait lives on the About page.
+from the ui-ux-pro-max design skill. The homepage story section shows his
+portrait (photo left, text right); the hero itself stays text-only.
 
 ## Features
 

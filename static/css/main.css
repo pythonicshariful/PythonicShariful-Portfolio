@@ -217,9 +217,17 @@ p { margin: 0 0 1rem; }
 .filter-btn:hover { text-decoration: none; border-color: var(--violet); color: var(--violet); }
 .filter-btn.active { background: var(--violet); color: #fff; border-color: var(--violet); }
 
-/* About / story — text only on the homepage (no photo here by Shariful's
-   rule; his photo lives on the About page) */
-.story-single { max-width: 780px; }
+/* About / story */
+.story-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 4rem; align-items: center; }
+.story-photo { margin: 0 12px 12px 0; position: relative; }
+.story-photo::before {
+  content: ""; position: absolute; inset: 0; transform: translate(12px, 12px);
+  background: var(--mint); border-radius: var(--radius-lg); z-index: 0;
+}
+.story-photo img {
+  position: relative; z-index: 1; width: 100%; display: block;
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
+}
 .about-head-grid { display: grid; grid-template-columns: 300px 1fr; gap: 3rem; align-items: start; }
 .about-photo { margin: 0 12px 12px 0; position: relative; }
 .about-photo::before {
@@ -463,6 +471,7 @@ p.pv-chat { font-family: var(--font-sans); font-size: .85rem; }
   .work-grid { grid-template-columns: repeat(2, 1fr); }
   .process { grid-template-columns: repeat(2, 1fr); }
   .cta-card { grid-template-columns: 1fr; gap: 2rem; padding: 2.25rem; }
+  .story-grid { gap: 2.5rem; }
 }
 @media (max-width: 768px) {
   .section { padding: 4.5rem 0; }
@@ -470,6 +479,7 @@ p.pv-chat { font-family: var(--font-sans); font-size: .85rem; }
   .hero-deco { display: none; }
   .about-head-grid { grid-template-columns: 1fr; gap: 1.75rem; }
   .about-photo img { max-width: 240px; }
+  .story-grid { grid-template-columns: 1fr; gap: 2rem; }
   .nav-toggle { display: inline-flex; }
   .site-nav {
     display: none; position: absolute; top: calc(100% + 10px); left: 0; right: 0;

@@ -36,10 +36,12 @@
   </div>
 </section>
 
-{# (3) About / story — text only on the homepage (Shariful's rule: no photo
-   on the home page; his photo shows on About, reached via the brand name) #}
+{# (3) About / story — photo left, text right #}
 <section class="section">
-  <div class="container story-single">
+  <div class="container story-grid">
+    <figure class="story-photo reveal">
+      <img src="{{ url_for('static', filename='images/shariful.jpg') }}" alt="Shariful Islam, Python developer from Dhaka" width="400" height="400" loading="lazy">
+    </figure>
     <div class="reveal">
       <p class="eyebrow">About Shariful</p>
       <h2>I build bots that have to work on the real site.</h2>
