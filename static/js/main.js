@@ -18,7 +18,7 @@
     });
   }
 
-  // Scroll reveal (IntersectionObserver, ~450ms)
+  // Scroll reveal (IntersectionObserver, ~300ms, capped stagger)
   var revealEls = document.querySelectorAll(".reveal");
   if (reduced || !("IntersectionObserver" in window)) {
     revealEls.forEach(function (el) { el.classList.add("visible"); });
@@ -26,7 +26,7 @@
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry, i) {
         if (entry.isIntersecting) {
-          entry.target.style.transitionDelay = Math.min(i * 60, 240) + "ms";
+          entry.target.style.transitionDelay = Math.min(i * 40, 120) + "ms";
           entry.target.classList.add("visible");
           io.unobserve(entry.target);
         }
@@ -34,6 +34,16 @@
     }, { threshold: 0.12 });
     revealEls.forEach(function (el) { io.observe(el); });
   }
+
+  // FAQ: single-open accordion — opening one closes the others.
+  var faqItems = document.querySelectorAll(".faq-item");
+  faqItems.forEach(function (item) {
+    item.addEventListener("toggle", function () {
+      if (item.open) {
+        faqItems.forEach(function (other) { if (other !== item) other.open = false; });
+      }
+    });
+  });
 
   // Stats count-up: 0 -> data-count over ~2s when scrolled into view.
   // Reduced motion: final value immediately.

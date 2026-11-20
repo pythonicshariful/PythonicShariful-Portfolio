@@ -147,7 +147,8 @@ SEED_SETTINGS = {
                   "upfront.",
     "email": "pythonicshariful@gmail.com",
     "facebook_url": "https://www.facebook.com/tanvirmahamud.shariful.3",
-    "fiverr_url": "https://www.fiverr.com/pythonicshariful",
+    "fiverr_url": "https://www.fiverr.com/python_shariful",
+    "freelancer_url": "https://www.freelancer.com/u/pythonicshariful",
     "github_url": "https://github.com/pythonicshariful",
     "linkedin_url": "https://www.linkedin.com/in/pythonicshariful141/",
 }
@@ -362,6 +363,16 @@ def init_db():
                 "WHERE title = ? AND summary = ? AND description = ?",
                 (s["summary"], s["description"], s["title"], old[0], old[1]),
             )
+    # v3 link fix (2026-11-20): the seeded Fiverr URL was wrong
+    # (pythonicshariful 404s on Fiverr); the real profile is
+    # python_shariful, verified live. Only the exact old value is
+    # replaced — an admin edit is never overwritten.
+    _OLD_FIVERR = "https://www.fiverr.com/pythonicshariful"
+    _NEW_FIVERR = "https://www.fiverr.com/python_shariful"
+    _frow = db.execute(
+        "SELECT value FROM settings WHERE key = 'fiverr_url'").fetchone()
+    if _frow and _frow["value"] == _OLD_FIVERR:
+        set_setting("fiverr_url", _NEW_FIVERR)
     # projects
     if db.execute("SELECT COUNT(*) c FROM projects").fetchone()["c"] == 0:
         for p in SEED_PROJECTS:
@@ -832,8 +843,8 @@ def admin_settings():
     if request.method == "POST":
         check_csrf()
         for key in ("hero_title", "hero_subtitle", "about_text", "email",
-                    "facebook_url", "fiverr_url", "github_url",
-                    "linkedin_url"):
+                    "facebook_url", "fiverr_url", "freelancer_url",
+                    "github_url", "linkedin_url"):
             set_setting(key, request.form.get(key, "").strip())
         current = request.form.get("current_password", "")
         new_pw = request.form.get("new_password", "")

@@ -66,11 +66,12 @@
         {% if errors and errors.message %}<p class="field-error">{{ errors.message }}</p>{% endif %}
       </div>
       <button class="btn btn-primary" type="submit">Send Message</button>
-      <p class="muted small">Your message is stored securely and only I can read it.</p>
+      <p class="muted small">Your message goes directly to me — no mailing list, no sharing.</p>
     </form>
     {% endif %}
     <div class="contact-alt reveal">
-      <p><strong>Prefer Fiverr?</strong> <a href="{{ site.fiverr_url or 'https://www.fiverr.com/pythonicshariful' }}" target="_blank" rel="noopener">Hire me on Fiverr</a></p>
+      <p><strong>Prefer Fiverr?</strong> <a href="{{ site.fiverr_url or 'https://www.fiverr.com/python_shariful' }}" target="_blank" rel="noopener">Hire me on Fiverr</a></p>
+      <p><strong>Freelancer:</strong> <a href="{{ site.freelancer_url or 'https://www.freelancer.com/u/pythonicshariful' }}" target="_blank" rel="noopener">freelancer.com/u/pythonicshariful</a></p>
       <p><strong>Email:</strong> <a href="mailto:{{ site.email or 'pythonicshariful@gmail.com' }}">{{ site.email or 'pythonicshariful@gmail.com' }}</a></p>
       <p><strong>Facebook:</strong> <a href="{{ site.facebook_url or 'https://www.facebook.com/tanvirmahamud.shariful.3' }}" target="_blank" rel="noopener">facebook.com/tanvirmahamud.shariful.3</a></p>
       <p><strong>LinkedIn:</strong> <a href="{{ site.linkedin_url or 'https://www.linkedin.com/in/pythonicshariful141/' }}" target="_blank" rel="noopener">linkedin.com/in/pythonicshariful141</a></p>
