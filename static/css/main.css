@@ -96,26 +96,8 @@ p { margin: 0 0 1rem; }
 .status-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--color-accent); margin-right: .4rem; box-shadow: 0 0 10px var(--color-accent); }
 .hero-sub { font-size: 1.15rem; color: var(--color-muted-foreground); max-width: 60ch; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: .8rem; margin: 1.5rem 0 2.5rem; }
-.hero-grid { display: grid; grid-template-columns: 1.45fr .55fr; gap: 2.5rem; align-items: center; }
-/* Hero cutout — transparent PNG floating over the 3D torus: no frame, no
-   card, no background box. Soft green glow behind it, bottom edge fades
-   into the page background via mask. */
-.hero-cutout { margin: 0; position: relative; display: flex; flex-direction: column; align-items: center; }
-.hero-cutout::before {
-  content: ""; position: absolute; width: 430px; height: 430px; top: 46%; left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(34,197,94,.30), rgba(34,197,94,.08) 45%, transparent 70%);
-  filter: blur(8px); pointer-events: none;
-}
-.hero-cutout img {
-  position: relative; z-index: 1; width: 100%; max-width: 400px; display: block;
-  -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 97%);
-  mask-image: linear-gradient(to bottom, #000 72%, transparent 97%);
-  filter: drop-shadow(0 18px 28px rgba(0,0,0,.55)) drop-shadow(0 0 28px rgba(34,197,94,.30));
-  animation: floaty 6s ease-in-out infinite;
-}
-@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-.hero-cutout figcaption { position: relative; z-index: 1; margin-top: .25rem; font-size: .9rem; color: var(--color-muted-foreground); text-align: center; }
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+.hero-text { max-width: 780px; }
 .social-row { display: flex; flex-wrap: wrap; gap: .6rem; margin: 0 0 2rem; padding: 0; list-style: none; }
 .social-row a {
   display: inline-flex; align-items: center; gap: .45rem; min-height: 44px;
@@ -304,9 +286,6 @@ p.pv-chat { font-family: var(--font-sans); font-size: .85rem; }
 }
 @media (max-width: 768px) {
   .hero-grid, .about-head-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .hero-cutout { order: 2; }
-  .hero-cutout img { max-width: 300px; }
-  .hero-cutout::before { width: 320px; height: 320px; }
   .bento-grid .card, .bento-grid .card--wide, .bento-grid .card:nth-child(3), .bento-more { grid-column: span 6; }
   .about-photo img { max-width: 240px; }
   .nav-toggle { display: inline-flex; }
