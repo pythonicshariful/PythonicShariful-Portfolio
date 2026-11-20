@@ -12,7 +12,7 @@
 <body>
 <div class="admin-layout">
   <aside class="admin-sidebar">
-    <a class="admin-brand" href="{{ url_for('admin_dashboard') }}"><span class="brand-avatar" aria-hidden="true">PS</span> Admin</a>
+    <a class="admin-brand" href="{{ url_for('admin_dashboard') }}"><span class="brand-avatar"><img src="{{ url_for('static', filename='images/shariful.jpg') }}" alt="Shariful Islam, Python developer from Dhaka" width="40" height="40"></span> Admin</a>
     <nav aria-label="Admin navigation">
       <a href="{{ url_for('admin_dashboard') }}" class="{% if request.endpoint == 'admin_dashboard' %}active{% endif %}">Dashboard</a>
       <a href="{{ url_for('admin_projects') }}" class="{% if 'project' in (request.endpoint or '') %}active{% endif %}">Projects</a>

@@ -25,7 +25,8 @@ h1 { font-size: 1.6rem; } h2 { font-size: 1.25rem; }
 .btn-danger { background: var(--color-destructive); color: #fff; }
 .btn-small { min-height: 36px; padding: .3rem .7rem; font-size: .88rem; }
 .btn-block { width: 100%; }
-.brand-avatar { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--color-accent); color: var(--color-on-accent); font-family: var(--font-mono); font-weight: 700; }
+.brand-avatar { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: var(--color-card); border: 1px solid var(--color-border); }
+.brand-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; }
 .badge { background: var(--color-destructive); color: #fff; border-radius: 999px; padding: .05rem .5rem; font-size: .8rem; font-weight: 700; }
 .badge-link { color: var(--color-foreground); font-size: .9rem; }
 

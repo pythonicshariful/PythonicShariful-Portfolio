@@ -132,17 +132,21 @@ def set_setting(key, value):
 # ---------------------------------------------------------------- seed data
 SEED_SETTINGS = {
     "hero_title": "Web Scraping & Automation Expert",
-    "hero_subtitle": "I build Python bots, scrapers and web apps that work live — "
-                     "not just in a demo. 5+ years turning repetitive, "
-                     "manual work into reliable automation.",
-    "about_text": "I'm Shariful Islam, a Python developer from Dhaka, "
-                  "Bangladesh. Since January 2024 I have worked freelance on "
-                  "Fiverr, building web scrapers, checkout and monitoring "
-                  "bots, data pipelines and Flask web apps for clients "
-                  "worldwide. I also work as an Accountant at Nexus River "
-                  "View. My rule is simple: a bot is only done when it is "
-                  "verified working live.",
+    "hero_subtitle": "I'm Shariful, a Python developer from Dhaka. Since "
+                     "January 2024 I've been building scrapers and bots on "
+                     "Fiverr — the kind that have to work on the real site, "
+                     "with real anti-bot checks, not just in a test folder.",
+    "about_text": "I'm Shariful Islam. I graduated in Economics (BA, "
+                  "Government Tolaram College, Narayanganj) and I work as "
+                  "an accountant by day at Nexus River View in Dhaka. Since "
+                  "January 2024 I've also been working freelance on Fiverr "
+                  "as a Python developer. Most of my work is web scraping, "
+                  "checkout and monitoring bots, and Flask web apps. I test "
+                  "everything against the live site before I hand it over, "
+                  "and if something can't be done reliably, I say so "
+                  "upfront.",
     "email": "pythonicshariful@gmail.com",
+    "facebook_url": "https://www.facebook.com/tanvirmahamud.shariful.3",
     "fiverr_url": "https://www.fiverr.com/pythonicshariful",
     "github_url": "https://github.com/pythonicshariful",
     "linkedin_url": "https://www.linkedin.com/in/pythonicshariful141/",
@@ -226,38 +230,38 @@ SEED_PROJECTS = [
 SEED_SERVICES = [
     {
         "title": "Web Scraping & Data Extraction",
-        "summary": "Clean, structured datasets from any website — static, dynamic or API-driven.",
-        "description": "Custom scrapers for e-commerce, directories, marketplaces and social data. Handles JavaScript-rendered pages, pagination, login flows and anti-bot measures, and delivers clean CSV / JSON / Excel or straight into your database.",
+        "summary": "You tell me the site and the fields you need — I build the scraper and hand you clean CSV, JSON or Excel.",
+        "description": "I build scrapers for shops, directories, marketplaces and listings. First I check the site: is it static, JavaScript-rendered, login-gated, or blocking bots? Then I build for that reality, with pagination, retries and clean output — CSV, JSON, Excel, or straight into your database.",
         "icon": "database", "sort_order": 1,
     },
     {
         "title": "Automation & Checkout Bots",
-        "summary": "Bots that buy, book or complete multi-step flows — with human-like behaviour.",
-        "description": "Auto-purchase and checkout bots, form fillers and workflow automation. Built with human-like delays, session handling and guarded final steps, and verified against the live site before delivery.",
+        "summary": "A bot that does the multi-step job for you — buying, booking or filling forms — and stops safely when it should.",
+        "description": "Checkout and auto-purchase bots, form fillers and workflow automation. I build in human-like delays and session handling, and the final step — actually placing an order — is always guarded, so the bot never spends your money by accident. I test it on the live site before delivery.",
         "icon": "bot", "sort_order": 2,
     },
     {
         "title": "Monitoring & Restock Bots",
-        "summary": "Know the second something changes — stock, price or a new listing.",
-        "description": "Fast polling monitors for stock, price drops and new listings, with Telegram / Discord alerts. CAPTCHA-aware pausing, proxy rotation and rate tuning keep the monitor running without getting blocked.",
+        "summary": "I watch the page for you and ping you on Telegram or Discord the moment stock, price or a listing changes.",
+        "description": "Monitors that check stock, prices and new listings on a schedule and alert you on Telegram or Discord only when something actually changes. I tune the check speed and add CAPTCHA-aware pausing, so the monitor keeps running instead of getting blocked.",
         "icon": "bell", "sort_order": 3,
     },
     {
         "title": "Flask Web Apps & CRM",
-        "summary": "Production Flask apps, CRMs and dashboards, deployed on your VPS.",
-        "description": "Custom Flask web apps, lead-management CRMs, admin dashboards and APIs — built, deployed with gunicorn + nginx + systemd on Ubuntu, and verified live. Includes role-based access and third-party integrations such as Facebook leads.",
+        "summary": "A working web app or CRM on your VPS — leads, dashboards and logins included — not a half-finished demo.",
+        "description": "Flask apps, lead-management CRMs and admin dashboards, deployed on Ubuntu with gunicorn, nginx and systemd and checked live. Role-based access, Facebook leads integration, and an Android app where the team works from phones.",
         "icon": "layout", "sort_order": 4,
     },
     {
         "title": "Data Pipelines & APIs",
-        "summary": "From raw pages to a clean API your team can actually use.",
-        "description": "ETL pipelines that collect, clean, dedupe and store data on a schedule, exposed through a simple REST API or dashboard. Includes logging, retries and monitoring so a failed run is noticed, not silent.",
+        "summary": "Your data collected, cleaned and stored on a schedule, with a simple API or dashboard on top.",
+        "description": "Pipelines that pull data from sites or APIs, clean and dedupe it, and store it on a schedule. You get a simple REST API or a dashboard to read it from, plus logging and retries — so a failed run gets noticed instead of going quiet.",
         "icon": "pipeline", "sort_order": 5,
     },
     {
         "title": "AI / ML Prototypes",
-        "summary": "Small, trainable AI prototypes — classifiers, chatbots and RAG demos.",
-        "description": "Trainable text classifiers, Bangla NLP prototypes, small-model fine-tuning and RAG demos built with scikit-learn and PyTorch. Honest scoping: a prototype is a prototype, and I will tell you what it can and cannot do before we start.",
+        "summary": "A small, trainable prototype — a classifier, a Bangla Q&A bot, a RAG demo — with an honest note on what it can and can't do.",
+        "description": "Trainable text classifiers, Bangla NLP prototypes and small-model demos built with scikit-learn and PyTorch. I scope it honestly first: a prototype proves an idea, it is not ChatGPT, and I'll tell you that before we start.",
         "icon": "brain", "sort_order": 6,
     },
 ]
@@ -309,6 +313,55 @@ def init_db():
         if db.execute("SELECT COUNT(*) c FROM settings WHERE key = ?",
                       (key,)).fetchone()["c"] == 0:
             set_setting(key, value)
+    # v2 content migration (2026-11-20): replace the v1 default copy with
+    # the humanized copy, but ONLY where the stored value is still exactly
+    # the v1 default — an admin edit is never overwritten. New keys (e.g.
+    # facebook_url) are already handled by the seed loop above.
+    _V1_SETTINGS = {
+        "hero_subtitle": "I build Python bots, scrapers and web apps that work live — "
+                         "not just in a demo. 5+ years turning repetitive, "
+                         "manual work into reliable automation.",
+        "about_text": "I'm Shariful Islam, a Python developer from Dhaka, "
+                      "Bangladesh. Since January 2024 I have worked freelance on "
+                      "Fiverr, building web scrapers, checkout and monitoring "
+                      "bots, data pipelines and Flask web apps for clients "
+                      "worldwide. I also work as an Accountant at Nexus River "
+                      "View. My rule is simple: a bot is only done when it is "
+                      "verified working live.",
+    }
+    for key, old in _V1_SETTINGS.items():
+        row = db.execute("SELECT value FROM settings WHERE key = ?",
+                         (key,)).fetchone()
+        if row and row["value"] == old:
+            set_setting(key, SEED_SETTINGS[key])
+    _V1_SERVICES = {
+        "Web Scraping & Data Extraction": (
+            "Clean, structured datasets from any website — static, dynamic or API-driven.",
+            "Custom scrapers for e-commerce, directories, marketplaces and social data. Handles JavaScript-rendered pages, pagination, login flows and anti-bot measures, and delivers clean CSV / JSON / Excel or straight into your database."),
+        "Automation & Checkout Bots": (
+            "Bots that buy, book or complete multi-step flows — with human-like behaviour.",
+            "Auto-purchase and checkout bots, form fillers and workflow automation. Built with human-like delays, session handling and guarded final steps, and verified against the live site before delivery."),
+        "Monitoring & Restock Bots": (
+            "Know the second something changes — stock, price or a new listing.",
+            "Fast polling monitors for stock, price drops and new listings, with Telegram / Discord alerts. CAPTCHA-aware pausing, proxy rotation and rate tuning keep the monitor running without getting blocked."),
+        "Flask Web Apps & CRM": (
+            "Production Flask apps, CRMs and dashboards, deployed on your VPS.",
+            "Custom Flask web apps, lead-management CRMs, admin dashboards and APIs — built, deployed with gunicorn + nginx + systemd on Ubuntu, and verified live. Includes role-based access and third-party integrations such as Facebook leads."),
+        "Data Pipelines & APIs": (
+            "From raw pages to a clean API your team can actually use.",
+            "ETL pipelines that collect, clean, dedupe and store data on a schedule, exposed through a simple REST API or dashboard. Includes logging, retries and monitoring so a failed run is noticed, not silent."),
+        "AI / ML Prototypes": (
+            "Small, trainable AI prototypes — classifiers, chatbots and RAG demos.",
+            "Trainable text classifiers, Bangla NLP prototypes, small-model fine-tuning and RAG demos built with scikit-learn and PyTorch. Honest scoping: a prototype is a prototype, and I will tell you what it can and cannot do before we start."),
+    }
+    for s in SEED_SERVICES:
+        old = _V1_SERVICES.get(s["title"])
+        if old:
+            db.execute(
+                "UPDATE services SET summary = ?, description = ? "
+                "WHERE title = ? AND summary = ? AND description = ?",
+                (s["summary"], s["description"], s["title"], old[0], old[1]),
+            )
     # projects
     if db.execute("SELECT COUNT(*) c FROM projects").fetchone()["c"] == 0:
         for p in SEED_PROJECTS:
@@ -779,7 +832,8 @@ def admin_settings():
     if request.method == "POST":
         check_csrf()
         for key in ("hero_title", "hero_subtitle", "about_text", "email",
-                    "fiverr_url", "github_url", "linkedin_url"):
+                    "facebook_url", "fiverr_url", "github_url",
+                    "linkedin_url"):
             set_setting(key, request.form.get(key, "").strip())
         current = request.form.get("current_password", "")
         new_pw = request.form.get("new_password", "")

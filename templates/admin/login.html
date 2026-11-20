@@ -12,7 +12,7 @@
 <main class="login-wrap">
   <form class="login-card" method="post" action="{{ url_for('admin_login') }}">
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-    <p class="brand-avatar login-avatar" aria-hidden="true">PS</p>
+    <p class="brand-avatar login-avatar"><img src="{{ url_for('static', filename='images/shariful.jpg') }}" alt="Shariful Islam, Python developer from Dhaka" width="56" height="56"></p>
     <h1>Admin Login</h1>
     <p class="muted">Pythonic Shariful — site administration</p>
     {% with messages = get_flashed_messages(with_categories=true) %}

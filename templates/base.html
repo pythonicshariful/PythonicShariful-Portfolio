@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{% block title %}Pythonic Shariful — Web Scraping &amp; Automation Expert{% endblock %}</title>
 <meta name="description" content="Shariful Islam (Pythonic Shariful) — Python developer building web scrapers, automation & checkout bots, monitoring bots and Flask web apps. Verified live before delivery.">
+<meta property="og:title" content="Pythonic Shariful — Web Scraping &amp; Automation Expert">
+<meta property="og:type" content="website">
+<meta property="og:image" content="{{ url_for('static', filename='images/shariful.jpg', _external=True) }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,7 +19,7 @@
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="{{ url_for('index') }}" aria-label="Pythonic Shariful — home">
-      <span class="brand-avatar" aria-hidden="true">PS</span>
+      <span class="brand-avatar"><img src="{{ url_for('static', filename='images/shariful.jpg') }}" alt="Shariful Islam, Python developer from Dhaka" width="40" height="40"></span>
       <span class="brand-text">Pythonic <span class="brand-accent">Shariful</span></span>
     </a>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle navigation">
@@ -63,6 +66,7 @@
     <div>
       <p class="footer-heading">Find me</p>
       <ul class="footer-links">
+        <li><a href="{{ site.facebook_url or 'https://www.facebook.com/tanvirmahamud.shariful.3' }}" target="_blank" rel="noopener">Facebook</a></li>
         <li><a href="{{ site.github_url or 'https://github.com/pythonicshariful' }}" target="_blank" rel="noopener">GitHub</a></li>
         <li><a href="{{ site.linkedin_url or 'https://www.linkedin.com/in/pythonicshariful141/' }}" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="{{ site.fiverr_url or 'https://www.fiverr.com/pythonicshariful' }}" target="_blank" rel="noopener">Fiverr</a></li>
