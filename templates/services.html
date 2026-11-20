@@ -13,6 +13,7 @@
     {% for s in services %}
     <article class="card reveal">
       <p class="card-tag mono">Service {{ loop.index }}</p>
+      {% set icon = s.icon %}{% include "_service_icon.html" %}
       <h2>{{ s.title }}</h2>
       <p class="muted">{{ s.description }}</p>
       <p class="card-link"><a href="{{ url_for('contact') }}">Discuss this service &rarr;</a></p>

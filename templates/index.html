@@ -19,14 +19,9 @@
         <li><a href="{{ site.linkedin_url or 'https://www.linkedin.com/in/pythonicshariful141/' }}" target="_blank" rel="noopener" aria-label="Shariful Islam on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.09h4.56V23H.22V8.09zM8.34 8.09h4.37v2.04h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 7v8.24h-4.55v-7.3c0-1.74-.03-3.98-2.43-3.98-2.43 0-2.8 1.9-2.8 3.86V23H8.34V8.09z"/></svg><span>LinkedIn</span></a></li>
         <li><a href="{{ site.fiverr_url or 'https://www.fiverr.com/pythonicshariful' }}" target="_blank" rel="noopener" aria-label="Shariful Islam on Fiverr"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3h11v3H9v3h6v3H9v6H5V3z"/></svg><span>Fiverr</span></a></li>
       </ul>
-      <dl class="hero-stats reveal">
-        <div><dt>Years experience</dt><dd>5+</dd></div>
-        <div><dt>Public GitHub repos</dt><dd>70+</dd></div>
-        <div><dt>Projects delivered</dt><dd>100+</dd></div>
-      </dl>
     </div>
-    <figure class="hero-photo reveal">
-      <img src="{{ url_for('static', filename='images/shariful.jpg') }}" alt="Shariful Islam, Python developer from Dhaka" width="400" height="400">
+    <figure class="hero-cutout reveal">
+      <img src="{{ url_for('static', filename='images/shariful-cutout.png') }}" alt="Shariful Islam, Python developer from Dhaka" width="400" height="400">
       <figcaption>Shariful Islam — Dhaka, Bangladesh</figcaption>
     </figure>
   </div>
@@ -39,6 +34,16 @@
   </div>
 </section>
 
+<section class="stats-strip" aria-label="Experience at a glance">
+  <div class="container">
+    <dl class="hero-stats reveal">
+      <div><dt>Years experience</dt><dd>5+</dd></div>
+      <div><dt>Public GitHub repos</dt><dd>70+</dd></div>
+      <div><dt>Projects delivered</dt><dd>100+</dd></div>
+    </dl>
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
     <div class="section-head reveal">
@@ -46,9 +51,10 @@
       <h2>Projects that shipped — and were verified live</h2>
       <p class="muted">Every bot below was tested against the real site before it was delivered. A fix is not done until it works live.</p>
     </div>
-    <div class="card-grid">
+    <div class="bento-grid">
       {% for p in featured %}
-      <article class="card reveal">
+      <article class="card reveal {% if loop.first %}card--wide{% endif %}">
+        {% set pv = p %}{% include "_project_visual.html" %}
         <p class="card-tag mono">{{ categories.get(p.category, p.category) }}</p>
         <h3><a href="{{ url_for('project_detail', slug=p.slug) }}">{{ p.title }}</a></h3>
         <p class="muted">{{ p.summary }}</p>
@@ -56,8 +62,12 @@
         <a class="card-link" href="{{ url_for('project_detail', slug=p.slug) }}">Read case study <span aria-hidden="true">&rarr;</span></a>
       </article>
       {% endfor %}
+      <a class="bento-more reveal" href="{{ url_for('projects') }}">
+        <span class="bento-more-num mono">8</span>
+        <span class="bento-more-text">projects in total — bots, monitors &amp; web apps</span>
+        <span class="bento-more-link">See all projects <span aria-hidden="true">&rarr;</span></span>
+      </a>
     </div>
-    <p class="center reveal"><a class="btn btn-outline" href="{{ url_for('projects') }}">See all projects</a></p>
   </div>
 </section>
 
@@ -70,6 +80,7 @@
     <div class="card-grid">
       {% for s in services %}
       <article class="card reveal">
+        {% set icon = s.icon %}{% include "_service_icon.html" %}
         <h3>{{ s.title }}</h3>
         <p class="muted">{{ s.summary }}</p>
       </article>

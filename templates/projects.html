@@ -20,6 +20,7 @@
     <div class="card-grid">
       {% for p in projects %}
       <article class="card reveal">
+        {% set pv = p %}{% include "_project_visual.html" %}
         <p class="card-tag mono">{{ categories.get(p.category, p.category) }}</p>
         <h3><a href="{{ url_for('project_detail', slug=p.slug) }}">{{ p.title }}</a></h3>
         <p class="muted">{{ p.summary }}</p>

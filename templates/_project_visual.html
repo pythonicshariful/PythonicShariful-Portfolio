@@ -1,0 +1,91 @@
+{# Hand-crafted project visuals — pure HTML/CSS mockups, no images, no logos.
+   Set `pv` to the project dict before including. Decorative: the project
+   summary next to it carries the real information, so aria-hidden="true".
+   Text inside is illustrative UI copy drawn only from the seed data in
+   app.py (titles, summaries, descriptions, tech lists). #}
+{% if pv.slug == 'microsoft-store-auto-checkout-bot' %}
+<div class="pv pv--term {% if pv_size == 'large' %}pv--large{% endif %}" aria-hidden="true">
+  <div class="pv-bar"><span class="pv-dot"></span><span class="pv-dot"></span><span class="pv-dot"></span><span class="pv-title mono">stock_check.py — terminal</span></div>
+  <div class="pv-body pv-term">
+    <p><span class="pv-prompt">$</span> python stock_check.py</p>
+    <p><span class="pv-ok">✓</span> isInventoryAvailable → True</p>
+    <p><span class="pv-ok">✓</span> DOM confirmed: IN STOCK</p>
+    <p><span class="pv-dim">delay 4–12s · human-like</span></p>
+    <p>Place Order: <span class="pv-chip pv-chip--warn">guarded — panel checkbox</span></p>
+  </div>
+</div>
+{% elif pv.slug == 'queue-pass-bot' %}
+<div class="pv pv--dash {% if pv_size == 'large' %}pv--large{% endif %}" aria-hidden="true">
+  <div class="pv-bar"><span class="pv-dot"></span><span class="pv-dot"></span><span class="pv-dot"></span><span class="pv-title mono">queue dashboard — live</span></div>
+  <div class="pv-body">
+    <div class="pv-row"><span class="pv-row-label">Session 1</span><span class="pv-meter"><span style="width: 62%"></span></span><span class="pv-chip">in queue</span></div>
+    <div class="pv-row"><span class="pv-row-label">Session 2</span><span class="pv-meter"><span style="width: 100%"></span></span><span class="pv-chip pv-chip--ok">pass link captured</span></div>
+    <div class="pv-row"><span class="pv-row-label">Session 3</span><span class="pv-meter"><span style="width: 38%"></span></span><span class="pv-chip">in queue</span></div>
+    <p class="pv-foot mono">Discord update sent · own proxy + profile per session</p>
+  </div>
+</div>
+{% elif pv.slug == 'lazada-restock-monitor-bot' %}
+<div class="pv pv--term {% if pv_size == 'large' %}pv--large{% endif %}" aria-hidden="true">
+  <div class="pv-bar"><span class="pv-dot"></span><span class="pv-dot"></span><span class="pv-dot"></span><span class="pv-title mono">restock monitor — terminal</span></div>
+  <div class="pv-body pv-term">
+    <p><span class="pv-prompt">$</span> python monitor.py</p>
+    <p><span class="pv-dim">polling MTOP API…</span></p>
+    <p>status: <span class="pv-chip">OUT OF STOCK</span></p>
+    <p><span class="pv-ok">✓</span> RESTOCK DETECTED → Telegram alert sent</p>
+    <p><span class="pv-warn">!</span> CAPTCHA detected — paused</p>
+  </div>
+</div>
+{% elif pv.slug == 'viagogo-listing-automation' %}
+<div class="pv pv--dash {% if pv_size == 'large' %}pv--large{% endif %}" aria-hidden="true">
+  <div class="pv-bar"><span class="pv-dot"></span><span class="pv-dot"></span><span class="pv-dot"></span><span class="pv-title mono">opportunity scanner</span></div>
+  <div class="pv-body">
+    <p class="pv-foot mono">single-event page parsed · 6h auto-collector</p>
+    <div class="pv-row"><span class="pv-row-label">Listing A</span><span class="pv-meter"><span style="width: 86%"></span></span><span class="pv-chip pv-chip--ok">opportunity: high</span></div>
+    <div class="pv-row"><span class="pv-row-label">Listing B</span><span class="pv-meter"><span style="width: 54%"></span></span><span class="pv-chip">opportunity: medium</span></div>
+    <div class="pv-row"><span class="pv-row-label">Listing C</span><span class="pv-meter"><span style="width: 22%"></span></span><span class="pv-chip">opportunity: low</span></div>
+    <p class="pv-foot mono">Discord sale alert · stealth browsing</p>
+  </div>
+</div>
+{% elif pv.slug == 'real-estate-crm' %}
+<div class="pv pv--dash {% if pv_size == 'large' %}pv--large{% endif %}" aria-hidden="true">
+  <div class="pv-bar"><span class="pv-dot"></span><span class="pv-dot"></span><span class="pv-dot"></span><span class="pv-title mono">Real-Estate CRM — dashboard</span></div>
+  <div class="pv-body">
+    <div class="pv-row"><span class="pv-row-label">Facebook lead</span><span class="pv-chip pv-chip--ok">assigned</span></div>
+    <div class="pv-row"><span class="pv-row-label">Facebook lead</span><span class="pv-chip">follow-up</span></div>
+    <div class="pv-row"><span class="pv-row-label">Event</span><span class="pv-chip">scheduled</span></div>
+    <p class="pv-foot mono">Facebook leads polling every 5 min · role-based access</p>
+  </div>
+</div>
+{% elif pv.slug == 'nexus-river-view-accounts' %}
+<div class="pv pv--dash {% if pv_size == 'large' %}pv--large{% endif %}" aria-hidden="true">
+  <div class="pv-bar"><span class="pv-dot"></span><span class="pv-dot"></span><span class="pv-dot"></span><span class="pv-title mono">Nexus River View — accounts</span></div>
+  <div class="pv-body">
+    <div class="pv-row"><span class="pv-row-label">Voucher</span><span class="pv-chip">category set</span></div>
+    <div class="pv-row"><span class="pv-row-label">Voucher</span><span class="pv-chip">category set</span></div>
+    <div class="pv-chat"><span class="pv-chat-q">Show this month's vouchers</span><span class="pv-chat-a">Read-only · single statement · SQLite guard</span></div>
+  </div>
+</div>
+{% elif pv.slug == 'southeast-landmark-crm-android-app' %}
+<div class="pv pv--phone {% if pv_size == 'large' %}pv--large{% endif %}" aria-hidden="true">
+  <div class="pv-phone">
+    <div class="pv-notch"></div>
+    <p class="pv-phone-title">CRM</p>
+    <div class="pv-push"><span class="pv-push-tag mono">FCM</span><span>New lead assigned</span></div>
+    <div class="pv-row"><span class="pv-row-label">Lead</span><span class="pv-chip pv-chip--ok">assigned</span></div>
+    <div class="pv-row"><span class="pv-row-label">Event</span><span class="pv-chip">reminder set</span></div>
+    <div class="pv-row"><span class="pv-row-label">Message</span><span class="pv-chip">unread</span></div>
+    <p class="pv-foot mono">phone-first · push for leads &amp; events</p>
+  </div>
+</div>
+{% elif pv.slug == 'bangla-trainable-ai' %}
+<div class="pv pv--code {% if pv_size == 'large' %}pv--large{% endif %}" aria-hidden="true">
+  <div class="pv-bar"><span class="pv-dot"></span><span class="pv-dot"></span><span class="pv-dot"></span><span class="pv-title mono">trainable_ai.py</span></div>
+  <div class="pv-body pv-term">
+    <p><span class="pv-kw">from</span> sklearn.feature_extraction.text <span class="pv-kw">import</span> TfidfVectorizer</p>
+    <p>clf = MultinomialNB()</p>
+    <p>clf.fit(X, y) <span class="pv-dim"># 6 intents · retrainable</span></p>
+    <p>TinyGPT <span class="pv-dim">· ~240K params · PyTorch · CPU</span></p>
+    <p class="pv-chat"><span class="pv-chat-q">ফিশিং লিংক চিনব কীভাবে?</span><span class="pv-chip pv-chip--ok">intent: phishing</span></p>
+  </div>
+</div>
+{% endif %}

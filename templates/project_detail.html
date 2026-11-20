@@ -8,6 +8,9 @@
     <h1 class="reveal">{{ project.title }}</h1>
     <p class="lead reveal">{{ project.summary }}</p>
     <div class="tags reveal">{% for t in project.tech.split(',') %}{% if t.strip() %}<span class="tag">{{ t.strip() }}</span>{% endif %}{% endfor %}</div>
+    <div class="detail-visual reveal">
+      {% set pv = project %}{% set pv_size = 'large' %}{% include "_project_visual.html" %}
+    </div>
     <div class="hero-ctas reveal">
       {% if project.github_url %}<a class="btn btn-outline" href="{{ project.github_url }}" target="_blank" rel="noopener">View on GitHub</a>{% endif %}
       {% if project.live_url %}<a class="btn btn-outline" href="{{ project.live_url }}" target="_blank" rel="noopener">View Live</a>{% endif %}
@@ -31,6 +34,7 @@
     <div class="card-grid">
       {% for p in others %}
       <article class="card reveal">
+        {% set pv = p %}{% include "_project_visual.html" %}
         <p class="card-tag mono">{{ categories.get(p.category, p.category) }}</p>
         <h3><a href="{{ url_for('project_detail', slug=p.slug) }}">{{ p.title }}</a></h3>
         <p class="muted">{{ p.summary }}</p>
