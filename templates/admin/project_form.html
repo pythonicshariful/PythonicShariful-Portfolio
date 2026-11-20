@@ -1,0 +1,37 @@
+{% extends "admin/base.html" %}
+{% block title %}{{ 'Edit Project' if project else 'New Project' }} — Admin{% endblock %}
+{% block page_title %}{{ 'Edit Project' if project else 'New Project' }}{% endblock %}
+{% block content %}
+<form class="form admin-form" method="post">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  {% set f = form or project %}
+  <div class="field"><label for="title">Title *</label><input type="text" id="title" name="title" required value="{{ f.title if f else '' }}"></div>
+  <div class="form-row">
+    <div class="field"><label for="slug">Slug (auto-filled from title if empty)</label><input type="text" id="slug" name="slug" value="{{ project.slug if project else '' }}"></div>
+    <div class="field"><label for="category">Category</label>
+      <select id="category" name="category">
+        {% for key, label in categories.items() %}
+        <option value="{{ key }}" {% if f and f.category == key %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+  <div class="field"><label for="summary">Summary (card text)</label><input type="text" id="summary" name="summary" value="{{ f.summary if f else '' }}"></div>
+  <div class="field"><label for="description">Description (detail page)</label><textarea id="description" name="description" rows="7">{{ f.description if f else '' }}</textarea></div>
+  <div class="field"><label for="tech">Tech (comma-separated)</label><input type="text" id="tech" name="tech" value="{{ f.tech if f else '' }}" placeholder="Python, Flask, Selenium"></div>
+  <div class="form-row">
+    <div class="field"><label for="github_url">GitHub URL (optional)</label><input type="url" id="github_url" name="github_url" value="{{ f.github_url if f else '' }}"></div>
+    <div class="field"><label for="live_url">Live URL (optional)</label><input type="url" id="live_url" name="live_url" value="{{ f.live_url if f else '' }}"></div>
+  </div>
+  <div class="form-row">
+    <div class="field"><label for="image_url">Image URL (optional)</label><input type="url" id="image_url" name="image_url" value="{{ f.image_url if f else '' }}"></div>
+    <div class="field"><label for="sort_order">Sort order</label><input type="number" id="sort_order" name="sort_order" value="{{ f.sort_order if f is not none else 0 }}"></div>
+  </div>
+  <div class="checkbox-row">
+    <label><input type="checkbox" name="featured" {% if f and f.featured %}checked{% endif %}> Featured (show on home page)</label>
+    <label><input type="checkbox" name="is_published" {% if f is none or f.is_published %}checked{% endif %}> Published</label>
+  </div>
+  <p><button class="btn btn-primary" type="submit">{{ 'Update Project' if project else 'Create Project' }}</button>
+  <a class="btn btn-outline" href="{{ url_for('admin_projects') }}">Cancel</a></p>
+</form>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}About — Pythonic Shariful{% endblock %}
+{% block content %}
+<section class="section page-head">
+  <div class="container">
+    <p class="eyebrow reveal">About</p>
+    <h1 class="reveal">Shariful Islam</h1>
+    <p class="lead reveal">{{ site.about_text or '' }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div class="reveal">
+      <h2>Timeline</h2>
+      <ol class="timeline">
+        <li><span class="mono">Jan 2024 — Present</span><h3>Freelance Python Developer — Fiverr</h3><p class="muted">Python Developer and Web Scraping Expert. Scrapers, checkout and monitoring bots, data pipelines and Flask apps for clients worldwide.</p></li>
+        <li><span class="mono">Feb 2026 — Present</span><h3>Accountant — Nexus River View, Dhaka</h3><p class="muted">Accounts work alongside freelance development; also built the company's Flask accounts app.</p></li>
+        <li><span class="mono">2019 — 2023</span><h3>BA Economics — National University, Bangladesh</h3><p class="muted">Bachelor of Arts in Economics, Government Tolaram College, Narayanganj.</p></li>
+      </ol>
+    </div>
+    <div class="reveal">
+      <h2>Tools I use daily</h2>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">Selenium</span><span class="tag">Playwright</span><span class="tag">Scrapy</span><span class="tag">BeautifulSoup</span><span class="tag">Flask</span><span class="tag">Tampermonkey</span><span class="tag">NopeCHA</span><span class="tag">Telegram Bot API</span><span class="tag">Discord Webhooks</span><span class="tag">GitHub</span><span class="tag">Ubuntu / VPS</span><span class="tag">gunicorn</span><span class="tag">nginx</span><span class="tag">SQLite</span><span class="tag">PyTorch</span><span class="tag">scikit-learn</span>
+      </div>
+      <h2 class="mt">Principles</h2>
+      <ul class="check-list">
+        <li>Verify live before calling it done.</li>
+        <li>Human-like behaviour, never brute force.</li>
+        <li>Honest scoping — if it cannot be done reliably, I say so.</li>
+        <li>Documented code the client can actually run.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="reveal">Skills</h2>
+    <div class="skills-grid">
+      {% for s in skills %}
+      <div class="skill reveal">
+        <div class="skill-head"><span>{{ s.name }}</span><span class="mono muted">{{ s.level }}%</span></div>
+        <div class="skill-bar" role="progressbar" aria-valuenow="{{ s.level }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ s.name }} proficiency {{ s.level }} percent"><span style="width: {{ s.level }}%"></span></div>
+        <p class="muted small">{{ s.category }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

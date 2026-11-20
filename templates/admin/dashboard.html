@@ -1,0 +1,41 @@
+{% extends "admin/base.html" %}
+{% block title %}Dashboard — Admin{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+{% block content %}
+{% if default_pw %}
+<div class="warning-banner" role="alert">
+  <strong>Security warning:</strong> You are still using the default admin password (<code>admin123</code>).
+  Change it now in <a href="{{ url_for('admin_settings') }}">Settings &rarr; Change Password</a>, and set the <code>ADMIN_PASSWORD</code> environment variable on the server.
+</div>
+{% endif %}
+<div class="stat-grid">
+  <div class="stat-card"><p class="stat-num">{{ stats.projects }}</p><p class="muted">Projects</p><a href="{{ url_for('admin_projects') }}">Manage &rarr;</a></div>
+  <div class="stat-card"><p class="stat-num">{{ stats.services }}</p><p class="muted">Services</p><a href="{{ url_for('admin_services') }}">Manage &rarr;</a></div>
+  <div class="stat-card"><p class="stat-num">{{ stats.messages }}</p><p class="muted">Total messages</p><a href="{{ url_for('admin_messages') }}">View inbox &rarr;</a></div>
+  <div class="stat-card"><p class="stat-num">{{ stats.unread }}</p><p class="muted">Unread messages</p><a href="{{ url_for('admin_messages') }}">View unread &rarr;</a></div>
+</div>
+<div class="panel">
+  <div class="panel-head"><h2>Recent messages</h2><a href="{{ url_for('admin_messages') }}">View all &rarr;</a></div>
+  {% if recent %}
+  <ul class="msg-list">
+    {% for m in recent %}
+    <li class="{% if not m.is_read %}unread{% endif %}">
+      <strong>{{ m.name }}</strong> <span class="muted">{{ m.email }}</span>
+      <p class="muted">{{ m.message[:140] }}{% if m.message|length > 140 %}...{% endif %}</p>
+      <span class="mono small muted">{{ m.project_type }} {% if m.budget %}· {{ m.budget }}{% endif %}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="muted">No messages yet. New contact-form submissions will appear here.</p>
+  {% endif %}
+</div>
+<div class="panel">
+  <h2>Quick links</h2>
+  <p>
+    <a class="btn btn-primary" href="{{ url_for('admin_project_new') }}">+ New Project</a>
+    <a class="btn btn-outline" href="{{ url_for('admin_service_new') }}">+ New Service</a>
+    <a class="btn btn-outline" href="{{ url_for('index') }}" target="_blank" rel="noopener">View Live Site</a>
+  </p>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "admin/base.html" %}
+{% block title %}Settings — Admin{% endblock %}
+{% block page_title %}Settings{% endblock %}
+{% block content %}
+<form class="form admin-form" method="post">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <div class="panel"><h2>Site content</h2>
+    <div class="field"><label for="hero_title">Hero title</label><input type="text" id="hero_title" name="hero_title" value="{{ site.hero_title }}"></div>
+    <div class="field"><label for="hero_subtitle">Hero subtitle</label><textarea id="hero_subtitle" name="hero_subtitle" rows="3">{{ site.hero_subtitle }}</textarea></div>
+    <div class="field"><label for="about_text">About text</label><textarea id="about_text" name="about_text" rows="5">{{ site.about_text }}</textarea></div>
+  </div>
+  <div class="panel"><h2>Contact &amp; links</h2>
+    <div class="field"><label for="email">Contact email</label><input type="email" id="email" name="email" value="{{ site.email }}"></div>
+    <div class="field"><label for="fiverr_url">Fiverr URL</label><input type="url" id="fiverr_url" name="fiverr_url" value="{{ site.fiverr_url }}"></div>
+    <div class="field"><label for="github_url">GitHub URL</label><input type="url" id="github_url" name="github_url" value="{{ site.github_url }}"></div>
+    <div class="field"><label for="linkedin_url">LinkedIn URL</label><input type="url" id="linkedin_url" name="linkedin_url" value="{{ site.linkedin_url }}"></div>
+  </div>
+  <div class="panel"><h2>Change admin password</h2>
+    <p class="muted small">Leave both fields empty to keep the current password. New password must be at least 8 characters.</p>
+    <div class="field"><label for="current_password">Current password</label><input type="password" id="current_password" name="current_password" autocomplete="current-password"></div>
+    <div class="field"><label for="new_password">New password</label><input type="password" id="new_password" name="new_password" autocomplete="new-password"></div>
+  </div>
+  <p><button class="btn btn-primary" type="submit">Save Settings</button></p>
+</form>
+{% endblock %}

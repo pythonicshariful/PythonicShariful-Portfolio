@@ -1,0 +1,29 @@
+{% extends "admin/base.html" %}
+{% block title %}Services — Admin{% endblock %}
+{% block page_title %}Services{% endblock %}
+{% block content %}
+<p><a class="btn btn-primary" href="{{ url_for('admin_service_new') }}">+ New Service</a></p>
+<div class="table-wrap">
+<table class="admin-table">
+  <thead><tr><th>Title</th><th>Summary</th><th>Order</th><th>Published</th><th>Actions</th></tr></thead>
+  <tbody>
+  {% for s in services %}
+  <tr>
+    <td data-label="Title"><strong>{{ s.title }}</strong></td>
+    <td data-label="Summary">{{ s.summary }}</td>
+    <td data-label="Order">{{ s.sort_order }}</td>
+    <td data-label="Published">{{ 'Yes' if s.is_published else 'No' }}</td>
+    <td data-label="Actions" class="actions">
+      <a class="btn btn-small" href="{{ url_for('admin_service_edit', sid=s.id) }}">Edit</a>
+      <form method="post" action="{{ url_for('admin_service_delete', sid=s.id) }}" data-confirm="Delete service '{{ s.title }}'?">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button class="btn btn-small btn-danger" type="submit">Delete</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% if not services %}<p class="muted">No services yet.</p>{% endif %}
+{% endblock %}

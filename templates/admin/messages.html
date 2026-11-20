@@ -1,0 +1,30 @@
+{% extends "admin/base.html" %}
+{% block title %}Messages — Admin{% endblock %}
+{% block page_title %}Messages{% endblock %}
+{% block content %}
+<input class="table-search" type="search" placeholder="Search messages..." data-table-search aria-label="Search messages">
+{% if messages %}
+<div class="msg-list">
+  {% for m in messages %}
+  <article class="msg-card {% if not m.is_read %}unread{% endif %}">
+    <div class="msg-head">
+      <div><strong>{{ m.name }}</strong> <a href="mailto:{{ m.email }}">{{ m.email }}</a></div>
+      <span class="mono small muted">#{{ m.id }}{% if not m.is_read %} · UNREAD{% endif %}</span>
+    </div>
+    <p class="mono small muted">{{ m.project_type }}{% if m.budget %} · Budget: {{ m.budget }}{% endif %}</p>
+    <p>{{ m.message }}</p>
+    <div class="actions">
+      {% if m.is_read %}
+      <form method="post" action="{{ url_for('admin_message_unread', mid=m.id) }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="btn btn-small" type="submit">Mark Unread</button></form>
+      {% else %}
+      <form method="post" action="{{ url_for('admin_message_read', mid=m.id) }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="btn btn-small" type="submit">Mark Read</button></form>
+      {% endif %}
+      <form method="post" action="{{ url_for('admin_message_delete', mid=m.id) }}" data-confirm="Delete this message?"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="btn btn-small btn-danger" type="submit">Delete</button></form>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% else %}
+<p class="muted">No messages yet.</p>
+{% endif %}
+{% endblock %}

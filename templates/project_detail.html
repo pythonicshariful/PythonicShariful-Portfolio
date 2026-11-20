@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}{{ project.title }} — Pythonic Shariful{% endblock %}
+{% block content %}
+<section class="section page-head">
+  <div class="container narrow">
+    <p class="eyebrow reveal"><a href="{{ url_for('projects') }}">&larr; All projects</a></p>
+    <p class="card-tag mono reveal">{{ categories.get(project.category, project.category) }}</p>
+    <h1 class="reveal">{{ project.title }}</h1>
+    <p class="lead reveal">{{ project.summary }}</p>
+    <div class="tags reveal">{% for t in project.tech.split(',') %}{% if t.strip() %}<span class="tag">{{ t.strip() }}</span>{% endif %}{% endfor %}</div>
+    <div class="hero-ctas reveal">
+      {% if project.github_url %}<a class="btn btn-outline" href="{{ project.github_url }}" target="_blank" rel="noopener">View on GitHub</a>{% endif %}
+      {% if project.live_url %}<a class="btn btn-outline" href="{{ project.live_url }}" target="_blank" rel="noopener">View Live</a>{% endif %}
+      <a class="btn btn-primary" href="{{ url_for('contact') }}">Start a Similar Project</a>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container narrow">
+    <div class="prose reveal">
+      {% for para in project.description.split('\n') %}
+        {% if para.strip() %}<p>{{ para.strip() }}</p>{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% if others %}
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="reveal">More projects</h2>
+    <div class="card-grid">
+      {% for p in others %}
+      <article class="card reveal">
+        <p class="card-tag mono">{{ categories.get(p.category, p.category) }}</p>
+        <h3><a href="{{ url_for('project_detail', slug=p.slug) }}">{{ p.title }}</a></h3>
+        <p class="muted">{{ p.summary }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

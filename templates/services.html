@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Services — Pythonic Shariful{% endblock %}
+{% block content %}
+<section class="section page-head">
+  <div class="container">
+    <p class="eyebrow reveal">Services</p>
+    <h1 class="reveal">What I can build for you</h1>
+    <p class="lead reveal">Six services, each with a clear deliverable. If your job does not fit one of these, message me — I will tell you honestly if I can do it.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container card-grid">
+    {% for s in services %}
+    <article class="card reveal">
+      <p class="card-tag mono">Service {{ loop.index }}</p>
+      <h2>{{ s.title }}</h2>
+      <p class="muted">{{ s.description }}</p>
+      <p class="card-link"><a href="{{ url_for('contact') }}">Discuss this service &rarr;</a></p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+<section class="section cta-section">
+  <div class="container cta-box reveal">
+    <h2>Not sure which service fits?</h2>
+    <p class="muted">Describe your goal in the contact form — I will point you to the right one, or tell you if it is not a fit.</p>
+    <a class="btn btn-primary" href="{{ url_for('contact') }}">Contact Me</a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login — Pythonic Shariful</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+<main class="login-wrap">
+  <form class="login-card" method="post" action="{{ url_for('admin_login') }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <p class="brand-avatar login-avatar" aria-hidden="true">PS</p>
+    <h1>Admin Login</h1>
+    <p class="muted">Pythonic Shariful — site administration</p>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}{% for category, message in messages %}
+      <div class="flash flash-{{ category }}" role="alert">{{ message }}</div>
+      {% endfor %}{% endif %}
+    {% endwith %}
+    <div class="field">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required autocomplete="username" autofocus>
+    </div>
+    <div class="field">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required autocomplete="current-password">
+    </div>
+    <button class="btn btn-primary btn-block" type="submit">Log In</button>
+    <p class="muted small center"><a href="{{ url_for('index') }}">&larr; Back to site</a></p>
+  </form>
+</main>
+</body>
+</html>

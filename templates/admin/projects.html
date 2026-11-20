@@ -1,0 +1,32 @@
+{% extends "admin/base.html" %}
+{% block title %}Projects — Admin{% endblock %}
+{% block page_title %}Projects{% endblock %}
+{% block content %}
+<p><a class="btn btn-primary" href="{{ url_for('admin_project_new') }}">+ New Project</a></p>
+<input class="table-search" type="search" placeholder="Search projects..." data-table-search aria-label="Search projects">
+<div class="table-wrap">
+<table class="admin-table">
+  <thead><tr><th>Title</th><th>Category</th><th>Featured</th><th>Published</th><th>Order</th><th>Actions</th></tr></thead>
+  <tbody>
+  {% for p in projects %}
+  <tr>
+    <td data-label="Title"><strong>{{ p.title }}</strong><br><span class="mono small muted">/{{ p.slug }}</span></td>
+    <td data-label="Category">{{ categories.get(p.category, p.category) }}</td>
+    <td data-label="Featured">{{ 'Yes' if p.featured else 'No' }}</td>
+    <td data-label="Published">{{ 'Yes' if p.is_published else 'No' }}</td>
+    <td data-label="Order">{{ p.sort_order }}</td>
+    <td data-label="Actions" class="actions">
+      <a class="btn btn-small" href="{{ url_for('project_detail', slug=p.slug) }}" target="_blank" rel="noopener">View</a>
+      <a class="btn btn-small" href="{{ url_for('admin_project_edit', pid=p.id) }}">Edit</a>
+      <form method="post" action="{{ url_for('admin_project_delete', pid=p.id) }}" data-confirm="Delete project '{{ p.title }}'? This cannot be undone.">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button class="btn btn-small btn-danger" type="submit">Delete</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% if not projects %}<p class="muted">No projects yet.</p>{% endif %}
+{% endblock %}

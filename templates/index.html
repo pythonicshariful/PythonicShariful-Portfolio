@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block title %}Pythonic Shariful — Web Scraping &amp; Automation Expert{% endblock %}
+{% block content %}
+
+<section class="hero">
+  <div class="hero-canvas-wrap" aria-hidden="true"><canvas id="hero3d"></canvas></div>
+  <div class="container hero-inner">
+    <p class="eyebrow reveal"><span class="status-dot" aria-hidden="true"></span> Available for freelance work</p>
+    <h1 class="reveal">Shariful Islam<br><span class="accent-text">{{ site.hero_title or 'Web Scraping & Automation Expert' }}</span></h1>
+    <p class="hero-sub reveal">{{ site.hero_subtitle or 'I build Python bots, scrapers and web apps that work live — not just in a demo.' }}</p>
+    <div class="hero-ctas reveal">
+      <a class="btn btn-primary" href="{{ url_for('projects') }}">View Projects</a>
+      <a class="btn btn-outline" href="{{ site.fiverr_url or 'https://www.fiverr.com/pythonicshariful' }}" target="_blank" rel="noopener">Hire Me on Fiverr</a>
+    </div>
+    <dl class="hero-stats reveal">
+      <div><dt>Years experience</dt><dd>5+</dd></div>
+      <div><dt>Public GitHub repos</dt><dd>70+</dd></div>
+      <div><dt>Projects delivered</dt><dd>100+</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="marquee-section" aria-label="Core skills">
+  <div class="marquee" aria-hidden="true">
+    <span>Python</span><span>Selenium</span><span>Playwright</span><span>Scrapy</span><span>Flask</span><span>Automation Bots</span><span>REST APIs</span><span>Proxy Rotation</span><span>Telegram Alerts</span><span>Data Pipelines</span>
+    <span>Python</span><span>Selenium</span><span>Playwright</span><span>Scrapy</span><span>Flask</span><span>Automation Bots</span><span>REST APIs</span><span>Proxy Rotation</span><span>Telegram Alerts</span><span>Data Pipelines</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Featured work</p>
+      <h2>Projects that shipped — and were verified live</h2>
+      <p class="muted">Every bot below was tested against the real site before it was delivered. A fix is not done until it works live.</p>
+    </div>
+    <div class="card-grid">
+      {% for p in featured %}
+      <article class="card reveal">
+        <p class="card-tag mono">{{ categories.get(p.category, p.category) }}</p>
+        <h3><a href="{{ url_for('project_detail', slug=p.slug) }}">{{ p.title }}</a></h3>
+        <p class="muted">{{ p.summary }}</p>
+        <div class="tags">{% for t in p.tech.split(',') %}<span class="tag">{{ t.strip() }}</span>{% endfor %}</div>
+        <a class="card-link" href="{{ url_for('project_detail', slug=p.slug) }}">Read case study <span aria-hidden="true">&rarr;</span></a>
+      </article>
+      {% endfor %}
+    </div>
+    <p class="center reveal"><a class="btn btn-outline" href="{{ url_for('projects') }}">See all projects</a></p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">What I do</p>
+      <h2>Services</h2>
+    </div>
+    <div class="card-grid">
+      {% for s in services %}
+      <article class="card reveal">
+        <h3>{{ s.title }}</h3>
+        <p class="muted">{{ s.summary }}</p>
+      </article>
+      {% endfor %}
+    </div>
+    <p class="center reveal"><a class="btn btn-outline" href="{{ url_for('services') }}">All services &amp; deliverables</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">How I work</p>
+      <h2>Discover &rarr; Build &rarr; Test Live &rarr; Deliver</h2>
+    </div>
+    <ol class="process">
+      <li class="reveal"><span class="process-num mono">01</span><h3>Discover</h3><p class="muted">Scope, target site and anti-bot reality checked first — no promises before I know what the site allows.</p></li>
+      <li class="reveal"><span class="process-num mono">02</span><h3>Build</h3><p class="muted">Clean, documented code with human-like behaviour, retries and logging built in from day one.</p></li>
+      <li class="reveal"><span class="process-num mono">03</span><h3>Test Live</h3><p class="muted">Tested against the real site, not a mock. If it fails live, it is not finished.</p></li>
+      <li class="reveal"><span class="process-num mono">04</span><h3>Deliver</h3><p class="muted">Code, setup guide and a live walkthrough — plus honest notes on what to watch for after delivery.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Outcomes from recent work</p>
+      <h2>Results, not promises</h2>
+      <p class="muted">Outcome statements from shipped work. No client names or quoted testimonials are published here.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card reveal"><h3>First live queue pass</h3><p class="muted">A multi-session queue bot passed a real live sale queue, and the two defects found live were fixed the same day.</p></article>
+      <article class="card reveal"><h3>Stock check, live-proven</h3><p class="muted">A Microsoft Store stock check was verified working on a real product page before the bot was handed over.</p></article>
+      <article class="card reveal"><h3>First organic leads delivered</h3><p class="muted">A Flask CRM with Facebook leads polling delivered its first organic leads to production and assigned them automatically.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-section">
+  <div class="container cta-box reveal">
+    <h2>Have a site to scrape, a bot to build, or a process to automate?</h2>
+    <p class="muted">Tell me what you need — I will tell you honestly whether it is possible, and what it will take.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="{{ url_for('contact') }}">Start a Project</a>
+      <a class="btn btn-outline" href="{{ site.fiverr_url or 'https://www.fiverr.com/pythonicshariful' }}" target="_blank" rel="noopener">Hire Me on Fiverr</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
+{% endblock %}

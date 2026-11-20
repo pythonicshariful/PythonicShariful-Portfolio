@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Admin — Pythonic Shariful{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="admin-sidebar">
+    <a class="admin-brand" href="{{ url_for('admin_dashboard') }}"><span class="brand-avatar" aria-hidden="true">PS</span> Admin</a>
+    <nav aria-label="Admin navigation">
+      <a href="{{ url_for('admin_dashboard') }}" class="{% if request.endpoint == 'admin_dashboard' %}active{% endif %}">Dashboard</a>
+      <a href="{{ url_for('admin_projects') }}" class="{% if 'project' in (request.endpoint or '') %}active{% endif %}">Projects</a>
+      <a href="{{ url_for('admin_services') }}" class="{% if 'service' in (request.endpoint or '') %}active{% endif %}">Services</a>
+      <a href="{{ url_for('admin_skills') }}" class="{% if 'skill' in (request.endpoint or '') %}active{% endif %}">Skills</a>
+      <a href="{{ url_for('admin_messages') }}" class="{% if 'message' in (request.endpoint or '') %}active{% endif %}">Messages {% if unread_messages %}<span class="badge">{{ unread_messages }}</span>{% endif %}</a>
+      <a href="{{ url_for('admin_settings') }}" class="{% if request.endpoint == 'admin_settings' %}active{% endif %}">Settings</a>
+    </nav>
+    <div class="admin-sidebar-foot">
+      <a href="{{ url_for('index') }}" target="_blank" rel="noopener">View live site</a>
+      <a href="{{ url_for('admin_logout') }}">Log out ({{ session.get('admin_username', 'admin') }})</a>
+    </div>
+  </aside>
+  <div class="admin-main">
+    <header class="admin-topbar">
+      <button class="nav-toggle" id="adminNavToggle" aria-expanded="false" aria-label="Toggle admin navigation">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <span class="admin-title">{% block page_title %}Admin{% endblock %}</span>
+      {% if unread_messages %}<a class="badge-link" href="{{ url_for('admin_messages') }}">{{ unread_messages }} unread message{{ 's' if unread_messages != 1 }}</a>{% endif %}
+    </header>
+    <main class="admin-content">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+          <div class="flash flash-{{ category }}" role="alert">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+</div>
+<script src="{{ url_for('static', filename='js/admin.js') }}" defer></script>
+</body>
+</html>

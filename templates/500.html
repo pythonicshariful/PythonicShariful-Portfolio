@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Something went wrong — Pythonic Shariful{% endblock %}
+{% block content %}
+<section class="section page-head"><div class="container narrow center">
+  <p class="eyebrow">500</p><h1>Something went wrong</h1>
+  <p class="lead">Sorry — an unexpected error occurred. Please try again, or contact me directly.</p>
+  <a class="btn btn-primary" href="{{ url_for('index') }}">Back to Home</a>
+</div></section>
+{% endblock %}
