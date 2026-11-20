@@ -13,7 +13,7 @@ Design: light premium agency theme (pale mint `#EEFDF9` background, deep navy
 `#213D63` headings, violet `#5B3FF8` + teal `#0AA692` accents), Plus Jakarta
 Sans + JetBrains Mono, responsive mobile-first (375 / 768 / 1024 / 1440px),
 from the ui-ux-pro-max design skill. The homepage story section shows his
-portrait (photo left, text right); the hero itself stays text-free of photos — animated gradient headline, verified Fiverr/Freelancer rating badges, a browser-frame terminal with live typing animation, drifting gradient orbs, floating proof cards and tool chips.
+portrait (photo left, text right); the hero itself stays text-free of photos — split layout with an animated bot GIF (hero-bot.gif, built with PIL in ~/workspace/hero-bot-gif/), animated gradient headline, verified Fiverr/Freelancer rating badges, a browser-frame terminal with live typing animation, drifting gradient orbs, floating proof cards and tool chips.
 
 ## Features
 

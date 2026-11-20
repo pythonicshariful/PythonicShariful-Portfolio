@@ -2,7 +2,7 @@
 {% block title %}Pythonic Shariful — Web Scraping &amp; Automation Expert{% endblock %}
 {% block content %}
 
-{# (1) Hero — centred, gradient headline, rating proof, live-terminal visual #}
+{# (1) Hero — split: copy left, animated bot GIF right, live-terminal visual below #}
 <section class="hero">
   <span class="hero-deco hero-deco--diamond hero-deco--d1" aria-hidden="true"></span>
   <span class="hero-deco hero-deco--circle hero-deco--d2" aria-hidden="true"></span>
@@ -11,6 +11,8 @@
   <span class="hero-orb hero-orb--violet" aria-hidden="true"></span>
   <span class="hero-orb hero-orb--teal" aria-hidden="true"></span>
   <div class="container hero-inner">
+    <div class="hero-split">
+    <div class="hero-copy">
     <p class="eyebrow reveal"><span class="status-dot" aria-hidden="true"></span> Python &bull; Web Scraping &bull; Automation Bots</p>
     <h1 class="reveal">Shariful Islam<br><span class="grad-text">{{ site.hero_title or 'Web Scraping & Automation Expert' }}</span></h1>
     <p class="hero-sub reveal">{{ site.hero_subtitle or "I'm Shariful, a Python developer from Dhaka. Since January 2024 I've been building scrapers and bots on Fiverr — the kind that have to work on the real site, with real anti-bot checks, not just in a test folder." }}</p>
@@ -29,6 +31,11 @@
       <li><a href="{{ site.fiverr_url or 'https://www.fiverr.com/python_shariful' }}" target="_blank" rel="noopener" aria-label="Shariful Islam on Fiverr"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3h11v3H9v3h6v3H9v6H5V3z"/></svg><span>Fiverr</span></a></li>
       <li><a href="{{ site.freelancer_url or 'https://www.freelancer.com/u/pythonicshariful' }}" target="_blank" rel="noopener" aria-label="Shariful Islam on Freelancer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span>Freelancer</span></a></li>
     </ul>
+    </div>
+    <figure class="hero-gif reveal">
+      <img src="{{ url_for('static', filename='images/hero-bot.gif') }}" alt="Animated illustration of Shariful's monitoring bot at a laptop finding stock and sending a Telegram alert" width="480" height="420" fetchpriority="high">
+    </figure>
+    </div>
     <div class="hero-visual reveal">
       <div class="browser-frame" role="img" aria-label="Illustration of one of Shariful's monitoring bots checking a store and sending a Telegram alert">
         <div class="browser-bar" aria-hidden="true"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">stock-monitor.py &mdash; python</span></div>
