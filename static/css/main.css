@@ -182,12 +182,6 @@ p { margin: 0 0 1rem; }
   .hero-split .hero-ctas, .hero-split .proof-row, .hero-split .trust-row { justify-content: center; }
   .hero-gif img { max-width: 340px; }
 }
-/* Rating proof badges — verified marketplace ratings, link to the profiles */
-.proof-row { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin: 0 0 1.75rem; }
-.proof-badge { display: inline-flex; align-items: center; gap: .4rem; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: .45rem 1rem; font-size: .92rem; color: var(--navy); box-shadow: var(--shadow-sm); transition: border-color var(--transition); }
-.proof-badge:hover { border-color: var(--violet); text-decoration: none; }
-.proof-badge .star { color: #E9A426; display: inline-flex; }
-.proof-badge span { color: var(--body); font-weight: 400; }
 /* Hero visual — browser-frame terminal + floating proof cards */
 .hero-visual { position: relative; max-width: 860px; margin: 2rem auto 0; text-align: left; }
 .browser-frame { background: #0B1B2E; border: 1px solid rgba(255, 255, 255, .08); border-radius: 16px; box-shadow: var(--shadow-lg); overflow: hidden; }

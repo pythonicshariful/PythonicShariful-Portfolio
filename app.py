@@ -149,6 +149,7 @@ SEED_SETTINGS = {
     "facebook_url": "https://www.facebook.com/tanvirmahamud.shariful.3",
     "fiverr_url": "https://www.fiverr.com/python_shariful",
     "freelancer_url": "https://www.freelancer.com/u/pythonicshariful",
+    "whatsapp_url": "https://wa.me/8801560023427",
     "github_url": "https://github.com/pythonicshariful",
     "linkedin_url": "https://www.linkedin.com/in/pythonicshariful141/",
 }
@@ -844,7 +845,7 @@ def admin_settings():
         check_csrf()
         for key in ("hero_title", "hero_subtitle", "about_text", "email",
                     "facebook_url", "fiverr_url", "freelancer_url",
-                    "github_url", "linkedin_url"):
+                    "whatsapp_url", "github_url", "linkedin_url"):
             set_setting(key, request.form.get(key, "").strip())
         current = request.form.get("current_password", "")
         new_pw = request.form.get("new_password", "")
